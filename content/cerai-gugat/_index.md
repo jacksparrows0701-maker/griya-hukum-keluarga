@@ -108,4 +108,31 @@ Berikut dokumen yang harus disiapkan untuk mengajukan cerai gugat:
 - **Konsiliasi:** Hakim akan berusaha melakukan konsiliasi (perdamaian) sebelum memutus perceraian. Siapkan mental untuk proses ini.
 - **Hukum Islam:** Pengadilan Agama menerapkan hukum Islam. Pastikan alasan cerai Anda sesuai dengan prinsip-prinsip hukum syariah.
 
+## Pertanyaan Umum (FAQ)
+
+<details class="faq-item">
+  <summary>Berapa lama proses cerai gugat di Pengadilan Agama?</summary>
+  <div class="faq-answer">Proses cerai gugat di Pengadilan Agama biasanya memakan waktu 3-6 bulan dari awal pendaftaran hingga putusan berkekuatan hukum tetap (inkracht). Lama waktu ini tergantung pada kompleksitas kasus, kehadiran tergugat, dan kondisi Pengadilan Agama di wilayah Anda.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Berapa biaya cerai gugat di Pengadilan Agama?</summary>
+  <div class="faq-answer">Biaya cerai gugat di Pengadilan Agama bervariasi tergantung wilayah dan klasifikasi perkara. Secara umum, biaya mulai dari Rp500.000 hingga Rp5.000.000 untuk perkara perceraian biasa. Untuk perkara dengan harta gono-gini, biaya bisa lebih tinggi.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Apa syarat cerai gugat yang harus dipenuhi?</summary>
+  <div class="faq-answer">Syarat cerai gugat meliputi: surat nikah asli atau surat keterangan nikah dari KUA, fotokopi KTP suami dan istri, fotokopi KK, akta kelahiran anak (jika ada), surat keterangan coba damai dari RT/RW atau tokoh masyarakat, dan surat gugatan dari pengacara.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bisakah cerai gugat jika suami tidak mau hadir?</summary>
+  <div class="faq-answer">Ya, bisa. Jika suami (tergugat) tidak mau hadir setelah dipanggil 3 kali secara sah, Pengadilan Agama bisa melanjutkan perkara tanpa kehadiran tergugat (verstek). Namun, proses ini memerlukan waktu lebih lama dan biaya lebih tinggi.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Apakah cerai gugat bisa dilakukan jika belum punya anak?</summary>
+  <div class="faq-answer">Ya, tidak ada syarat wajib harus punya anak untuk mengajukan cerai gugat. Istri bisa mengajukan cerai gugat kapan saja dengan alasan yang dapat diterima oleh Pengadilan Agama.</div>
+</details>
+
 {{< whatsapp "Halo, saya ingin konsultasi soal cerai gugat" >}}
