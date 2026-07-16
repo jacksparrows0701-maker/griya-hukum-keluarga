@@ -9,5 +9,5 @@ echo Buka browser ke: http://localhost:1313/
 echo Tekan Ctrl+C untuk menghentikan server.
 echo.
 cd /d "%~dp0"
-hugo server -D
+hugo server -D --disableLiveReload
 pause
