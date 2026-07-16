@@ -81,6 +81,8 @@ Berikut langkah-langkah dalam proses cerai talak:
 | Biaya prosedural (panggilan, dll.) | Rp500.000 - Rp2.000.000 |
 | **Total Estimasi** | **Rp4.000.000 - Rp22.000.000** |
 
+{{< warning "Biaya bersifat estimasi. Hubungi kami untuk perkiraan biaya yang lebih akurat sesuai kondisi Anda." >}}
+
 ### Waktu
 
 | Tahap | Estimasi Waktu |
@@ -97,3 +99,5 @@ Berikut langkah-langkah dalam proses cerai talak:
 - **Hak Istri:** Istri berhak mendapatkan nafkah iddah, mut'ah (pemberian), dan hak asuh anak. Pastikan hak-hak ini terakomodasi dalam putusan.
 - **Harta Gono-Gini:** Jika ada harta bersama, sebaiknya dibicarakan sebelum proses talak untuk menghindari konflik berkepanjangan.
 - **Rujuk:** Setelah talak berkekuatan hukum tetap, suami dan istri masih bisa rujuk (menikah kembali) selama masa iddah belum berakhir.
+
+{{< whatsapp "Halo, saya ingin konsultasi soal cerai talak" >}}
