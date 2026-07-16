@@ -5,18 +5,20 @@
       <span class="logo-text">{{ .Site.Title }}</span>
     </a>
     <nav class="main-nav" id="mainNav">
-      <a href="{{ .Site.BaseURL }}" class="nav-link{{ if .IsHome }} active{{ end }}">Beranda</a>
+      {{ range .Site.Menus.main }}
+        {{ if eq .Name "Layanan" }}
       <div class="nav-item dropdown">
         <button class="nav-link dropdown-toggle">Layanan ▾</button>
         <div class="dropdown-menu">
-          {{ range .Site.Params.services.items }}
-          <a href="{{ .slug | absURL }}" class="dropdown-item">{{ .icon }} {{ .title }}</a>
+          {{ range $.Site.Menus.services }}
+          <a href="{{ .URL }}" class="dropdown-item">{{ .Params.icon }} {{ .Name }}</a>
           {{ end }}
         </div>
       </div>
-      <a href="{{ "tentang" | absURL }}" class="nav-link{{ if eq .RelPermalink "/tentang/" }} active{{ end }}">Tentang Kami</a>
-      <a href="{{ "blog" | absURL }}" class="nav-link{{ if eq .Section "blog" }} active{{ end }}">Artikel</a>
-      <a href="{{ "konsultasi" | absURL }}" class="nav-link nav-cta{{ if eq .RelPermalink "/konsultasi/" }} active{{ end }}">Konsultasi</a>
+        {{ else }}
+      <a href="{{ .URL }}" class="nav-link{{ if $.IsHome }}{{ if eq .URL "/" }} active{{ end }}{{ else if eq $.RelPermalink .URL }} active{{ end }}{{ if .Params.cta }} nav-cta{{ end }}">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
   </div>
