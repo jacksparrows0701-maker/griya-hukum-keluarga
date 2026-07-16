@@ -92,6 +92,8 @@ Surah An-Nisa ayat 11 menegaskan bahwa Allah mensyariatkan bagi kalian tentang a
 | Biaya prosedural | Rp500.000 - Rp1.500.000 |
 | **Total Estimasi** | **Rp3.000.000 - Rp16.500.000** |
 
+{{< warning "Biaya bersifat estimasi. Hubungi kami untuk perkiraan biaya yang lebih akurat sesuai kondisi Anda." >}}
+
 ### Waktu
 
 | Tahap | Estimasi Waktu |
@@ -107,3 +109,5 @@ Surah An-Nisa ayat 11 menegaskan bahwa Allah mensyariatkan bagi kalian tentang a
 - **Harta Bersama:** Harta bersama suami istri harus dipisahkan terlebih dahulu dari harta waris. Hanya harta pewaris yang menjadi objek waris.
 - **Wasiat:** Pewaris bisa membuat wasiat untuk memberikan bagian tertentu kepada orang tertentu, namun wasiat tidak boleh melebihi 1/3 dari total harta waris.
 - **Hutang Pewaris:** Sebelum pembagian, hutang pewaris harus dilunasi terlebih dahulu dari harta waris.
+
+{{< whatsapp "Halo, saya ingin konsultasi soal pembagian waris" >}}

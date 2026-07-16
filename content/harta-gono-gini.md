@@ -99,6 +99,8 @@ Pasal 37 UU No. 1 Tahun 1974 menegaskan bahwa harta bersama suami istri harus di
 | Biaya prosedural | Rp1.000.000 - Rp3.000.000 |
 | **Total Estimasi** | **Rp9.000.000 - Rp38.000.000** |
 
+{{< warning "Biaya bersifat estimasi. Hubungi kami untuk perkiraan biaya yang lebih akurat sesuai kondisi Anda." >}}
+
 ### Waktu
 
 | Tahap | Estimasi Waktu |
@@ -116,3 +118,5 @@ Pasal 37 UU No. 1 Tahun 1974 menegaskan bahwa harta bersama suami istri harus di
 - **Negosiasi:** Sebaiknya coba negosiasi terlebih dahulu sebelum membawa ke pengadilan. Negosiasi lebih hemat waktu dan biaya.
 - **Pajak:** Pembagian harta gono-gini bisa terkena pajak. Konsultasikan dengan konsultan pajak untuk memahami kewajiban pajak.
 - **Hutang Bersama:** Hutang yang diperoleh selama perkawinan juga harus dibagi secara adil.
+
+{{< whatsapp "Halo, saya ingin konsultasi soal harta gono-gini" >}}

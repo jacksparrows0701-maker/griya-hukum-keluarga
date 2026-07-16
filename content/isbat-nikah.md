@@ -103,9 +103,13 @@ Proses kombinasi isbat nikah dan PAW dilakukan dalam satu persidangan, sehingga 
 | Pencatatan di KUA | 1-3 hari kerja |
 | **Total Estimasi** | **2-5 bulan** |
 
+{{< warning "Biaya bersifat estimasi. Hubungi kami untuk perkiraan biaya yang lebih akurat sesuai kondisi Anda." >}}
+
 ## Hal yang Perlu Diperhatikan
 
 - **Kehadiran Para Pihak:** Isbat nikah memerlukan kehadiran suami dan istri. Jika salah satu pihak tidak hadir, proses akan lebih panjang.
 - **Bukti Nikah:** Semakin kuat bukti nikah yang dimiliki, semakin mudah proses isbat nikah. Bukti bisa berupa saksi, foto, surat, atau dokumen lainnya.
 - **Anak:** Isbat nikah juga mempengaruhi status hukum anak. Dengan isbat nikah, anak mendapatkan kepastian hukum mengenai statusnya sebagai anak yang sah.
 - **Hak Istri:** Istri berhak mendapatkan hak-haknya setelah isbat nikah, termasuk nafkah, mut'ah, dan hak waris.
+
+{{< whatsapp "Halo, saya ingin konsultasi soal isbat nikah" >}}
