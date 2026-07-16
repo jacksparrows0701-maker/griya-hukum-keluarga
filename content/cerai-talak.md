@@ -100,4 +100,31 @@ Berikut langkah-langkah dalam proses cerai talak:
 - **Harta Gono-Gini:** Jika ada harta bersama, sebaiknya dibicarakan sebelum proses talak untuk menghindari konflik berkepanjangan.
 - **Rujuk:** Setelah talak berkekuatan hukum tetap, suami dan istri masih bisa rujuk (menikah kembali) selama masa iddah belum berakhir.
 
+## Pertanyaan Umum (FAQ)
+
+<details class="faq-item">
+  <summary>Apa bedanya cerai talak dengan cerai gugat?</summary>
+  <div class="faq-answer">Cerai talak diajukan oleh suami, sedangkan cerai gugat diajukan oleh istri. Dalam cerai talak, suami menyatakan perceraian di hadapan Pengadilan Agama.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Berapa biaya cerai talak di Pengadilan Agama?</summary>
+  <div class="faq-answer">Biaya cerai talak di Pengadilan Agama berkisar antara Rp4.000.000 hingga Rp22.000.000 tergantung kompleksitas kasus dan kehadiran tergugat.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bagaimana jika istri tidak setuju diceraikan?</summary>
+  <div class="faq-answer">Jika istri tidak setuju, hakim akan melakukan mediasi untuk mencoba mempertahankan rumah tangga. Jika mediasi gagal, hakim tetap bisa mengabulkan perceraian jika ada alasan yang cukup.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bisakah cerai talak tanpa pengacara?</summary>
+  <div class="faq-answer">Secara hukum bisa, tapi sangat tidak disarankan. Pengacara membantu memastikan proses lancar dan hak-hak Anda terlindungi.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Apakah talak bisa dicabut?</summary>
+  <div class="faq-answer">Talak yang sudah berkekuatan hukum tetap tidak bisa dicabut. Namun, suami dan istri bisa rujuk (menikah kembali) selama masa iddah belum berakhir.</div>
+</details>
+
 {{< whatsapp "Halo, saya ingin konsultasi soal cerai talak" >}}

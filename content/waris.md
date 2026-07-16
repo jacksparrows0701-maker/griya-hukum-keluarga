@@ -110,4 +110,26 @@ Surah An-Nisa ayat 11 menegaskan bahwa Allah mensyariatkan bagi kalian tentang a
 - **Wasiat:** Pewaris bisa membuat wasiat untuk memberikan bagian tertentu kepada orang tertentu, namun wasiat tidak boleh melebihi 1/3 dari total harta waris.
 - **Hutang Pewaris:** Sebelum pembagian, hutang pewaris harus dilunasi terlebih dahulu dari harta waris.
 
+## Pertanyaan Umum (FAQ)
+
+<details class="faq-item">
+  <summary>Kapan pembagian waris harus dilakukan?</summary>
+  <div class="faq-answer">Pembagian waris sebaiknya dilakukan sesegera mungkin setelah pewaris meninggal dunia. Jika ada perselisihan, penetapan ahli waris harus dilakukan di Pengadilan Agama.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Siapa yang berhak menjadi ahli waris?</summary>
+  <div class="faq-answer">Menurut hukum Islam, ahli waris terdiri dari anak laki-laki, perempuan, suami/istri, orang tua, kakek, dan sahabat. Anak laki-laki mendapat bagian dua kali lipat dari anak perempuan.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bagaimana jika tidak ada surat wasiat?</summary>
+  <div class="faq-answer">Jika tidak ada surat wasiat, pembagian waris dilakukan menurut hukum waris Islam (faraid). Jika ada perselisihan, penetapan ahli waris dilakukan di Pengadilan Agama.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bagaimana jika waris dibagi tanpa ke Pengadilan?</summary>
+  <div class="faq-answer">Bisa, jika semua ahli waris sepakat. Namun, untuk kepastian hukum, sebaiknya buat perjanjian tertulis di hadapan notaris.</div>
+</details>
+
 {{< whatsapp "Halo, saya ingin konsultasi soal pembagian waris" >}}

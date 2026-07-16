@@ -112,4 +112,26 @@ Proses kombinasi isbat nikah dan PAW dilakukan dalam satu persidangan, sehingga 
 - **Anak:** Isbat nikah juga mempengaruhi status hukum anak. Dengan isbat nikah, anak mendapatkan kepastian hukum mengenai statusnya sebagai anak yang sah.
 - **Hak Istri:** Istri berhak mendapatkan hak-haknya setelah isbat nikah, termasuk nafkah, mut'ah, dan hak waris.
 
+## Pertanyaan Umum (FAQ)
+
+<details class="faq-item">
+  <summary>Apa itu isbat nikah?</summary>
+  <div class="faq-answer">Isbat nikah adalah pengesahan nikah yang dilakukan di hadapan Pengadilan Agama. Diperlukan ketika pernikahan tidak tercatat resmi di KUA.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Kapan isbat nikah perlu dilakukan?</summary>
+  <div class="faq-answer">Isbat nikah perlu dilakukan ketika: pernikahan tidak tercatat di KUA, nikah siri, nikah tanpa izin KUA, atau untuk keperluan administrasi seperti pembuatan akta anak atau hukum waris.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bisakah isbat nikah dikombinasikan dengan PAW?</summary>
+  <div class="faq-answer">Ya, bisa. Isbat nikah bisa dikombinasikan dengan penetapan ahli waris (PAW) dalam satu gugatan di Pengadilan Agama.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Apakah isbat nikah bisa tanpa suami?</summary>
+  <div class="faq-answer">Secara umum memerlukan kehadiran kedua belah pihak. Namapi dalam kondisi tertentu seperti suami tidak diketahui keberadaannya, pengadilan bisa memproses tanpa kehadiran suami.</div>
+</details>
+
 {{< whatsapp "Halo, saya ingin konsultasi soal isbat nikah" >}}

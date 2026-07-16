@@ -119,4 +119,26 @@ Pasal 37 UU No. 1 Tahun 1974 menegaskan bahwa harta bersama suami istri harus di
 - **Pajak:** Pembagian harta gono-gini bisa terkena pajak. Konsultasikan dengan konsultan pajak untuk memahami kewajiban pajak.
 - **Hutang Bersama:** Hutang yang diperoleh selama perkawinan juga harus dibagi secara adil.
 
+## Pertanyaan Umum (FAQ)
+
+<details class="faq-item">
+  <summary>Apa itu harta gono-gini?</summary>
+  <div class="faq-answer">Harta gono-gini atau harta bersama adalah harta yang diperoleh selama perkawinan, baik oleh suami maupun istri. Harta ini harus dibagi secara adil setelah perceraian.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bagaimana cara membagi harta gono-gini?</summary>
+  <div class="faq-answer">Pembagian bisa dilakukan secara musyawarah. Jika tidak ada kesepakatan, pembagian dilakukan di Pengadilan Agama berdasarkan kontribusi masing-masing pihak selama perkawinan.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Harta apa saja yang termasuk gono-gini?</summary>
+  <div class="faq-answer">Meliputi: rumah, tanah, kendaraan, tabungan, investasi, usaha, dan harta lainnya yang diperoleh selama perkawinan. Harta warisan atau hadiah dari orang tua tidak termasuk.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bisakah harta gono-gini dibagi sebelum cerai?</summary>
+  <div class="faq-answer">Ya, bisa melalui perjanjian pisah harta (prenuptial agreement). Namun, jika tidak ada perjanjian sebelumnya, pembagian biasanya dilakukan bersamaan dengan gugatan cerai.</div>
+</details>
+
 {{< whatsapp "Halo, saya ingin konsultasi soal harta gono-gini" >}}

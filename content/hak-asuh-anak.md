@@ -107,4 +107,26 @@ Hakim akan mempertimbangkan beberapa faktor dalam memutus hak asuh anak:
 - **Kunjungan:** Orang tua yang tidak mendapat hak asuh berhak untuk menjenguk atau berkunjung kepada anak.
 - **Perubahan Hak Asuh:** Jika ada perubahan kondisi yang signifikan, hak asuh anak bisa diganti melalui proses hukum.
 
+## Pertanyaan Umum (FAQ)
+
+<details class="faq-item">
+  <summary>Siapa yang berhak mendapat hak asuh anak?</summary>
+  <div class="faq-answer">Menurut hukum Islam, hak asuh anak setelah perceraian menjadi hak ibu untuk anak yang belum baligh, dan hak ayah untuk anak yang sudah baligh. Namun, hakim bisa mempertimbangkan kepentingan terbaik anak.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Bagaimana jika ibu ingin mempertahankan hak asuh?</summary>
+  <div class="faq-answer">Ibu bisa mengajukan gugatan hak asuh anak di Pengadilan Agama. Hakim akan mempertimbangkan kemampuan ekonomi, kedekatan dengan anak, lingkungan yang baik, dan kepentingan terbaik anak.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Apakah hak asuh bisa diganti setelah putusan?</summary>
+  <div class="faq-answer">Ya, bisa jika ada perubahan kondisi yang signifikan, misalnya orang tua tidak mampu merawat anak atau anak mengalami kekerasan.</div>
+</details>
+
+<details class="faq-item">
+  <summary>Apakah anak bisa memilih tinggal dengan siapa?</summary>
+  <div class="faq-answer">Anak yang sudah cukup umur (biasanya di atas 12 tahun) bisa memberikan pendapat, namun keputusan akhir tetap ada di hakim berdasarkan kepentingan terbaik anak.</div>
+</details>
+
 {{< whatsapp "Halo, saya ingin konsultasi soal hak asuh anak" >}}
