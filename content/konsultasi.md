@@ -13,7 +13,7 @@ Kami menyediakan layanan konsultasi hukum keluarga Islam untuk Anda yang membutu
 
 Cara tercepat untuk menghubungi kami adalah melalui WhatsApp. Klik tombol di bawah untuk langsung terhubung dengan tim kami:
 
-<a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="btn-wa" target="_blank" rel="noopener" style="display: inline-block; background: #25d366; color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; text-decoration: none;">
+<a href="https://wa.me/6285119973606?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="btn-wa" target="_blank" rel="noopener" style="display: inline-block; background: #25d366; color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; text-decoration: none;">
 💬 Chat WhatsApp Sekarang
 </a>
 
@@ -21,8 +21,8 @@ Cara tercepat untuk menghubungi kami adalah melalui WhatsApp. Klik tombol di baw
 
 Jika Anda lebih nyaman mengirim pesan melalui form, silakan isi form di bawah ini. Kami akan merespon dalam 1x24 jam.
 
-<form action="https://formsubmit.co/{{ .Site.Params.email }}" method="POST" style="max-width: 600px; margin: 24px 0;">
-  <input type="hidden" name="_next" value="{{ .Site.BaseURL }}konsultasi">
+<form action="https://formsubmit.co/rklawyerandpartners@gmail.com" method="POST" style="max-width: 600px; margin: 24px 0;">
+  <input type="hidden" name="_next" value="https://jacksparrows0701-maker.github.io/griya-hukum-keluarga/konsultasi">
   <input type="hidden" name="_captcha" value="false">
   
   <div style="margin-bottom: 16px;">

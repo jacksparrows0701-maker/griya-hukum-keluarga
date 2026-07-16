@@ -64,5 +64,5 @@ Kami berkomitmen untuk:
 
 Jangan ragu untuk menghubungi kami jika Anda membutuhkan bantuan hukum keluarga. Konsultasi awal gratis!
 
-📞 WhatsApp: {{ .Site.Params.phoneDisplay }}
-📧 Email: {{ .Site.Params.email }}
+📞 WhatsApp: 0851-1997-3606
+📧 Email: rklawyerandpartners@gmail.com
