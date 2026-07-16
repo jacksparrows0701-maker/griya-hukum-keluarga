@@ -70,12 +70,8 @@ Jika Anda lebih nyaman mengirim pesan melalui form, silakan isi form di bawah in
 
 ### Lokasi Kantor
 
-{{ with .Site.Params.address }}
-<p>📍 {{ . }}</p>
-{{ end }}
+<p>📍 Jl. Palasari No.149, Palasari, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</p>
 
-{{ with .Site.Params.mapsEmbed }}
 <div style="margin-top: 16px;">
-  {{ . | safeHTML }}
+<iframe src="https://maps.google.com/maps?q=Jl.+Palasari+No.149,+Palasari,+Kec.+Cibiru,+Kota+Bandung,+Jawa+Barat+40615&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
-{{ end }}
