@@ -2,7 +2,6 @@ baseURL = 'https://griyahukumkeluarga.id/'
 defaultContentLanguage = 'id'
 locale = 'id-id'
 title = 'Griya Hukum Keluarga'
-theme = ''
 
 [params]
   description = 'Konsultasi hukum keluarga Islam: cerai gugat, cerai talak, waris, isbat nikah, hak asuh anak, harta gono-gini. Pengacara berpengalaman di Pengadilan Agama.'
