@@ -1,10 +1,11 @@
 {{ define "main" }}
 <div class="page-header">
   <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
 </div>
 <div class="blog-list">
   {{ .Content }}
-  {{ range .Pages }}
+  {{ range .Pages.ByDate.Reverse }}
   <div class="blog-item">
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <div class="meta">{{ .Date.Format "02 January 2006" }} {{ with .Params.category }}· {{ . }}{{ end }}</div>
