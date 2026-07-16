@@ -1,0 +1,59 @@
+baseURL = 'https://griyahukumkeluarga.id/'
+defaultContentLanguage = 'id'
+locale = 'id-id'
+title = 'Griya Hukum Keluarga'
+theme = ''
+
+[params]
+  description = 'Konsultasi hukum keluarga Islam: cerai gugat, cerai talak, waris, isbat nikah, hak asuh anak, harta gono-gini. Pengacara berpengalaman di Pengadilan Agama.'
+  author = 'Griya Hukum Keluarga'
+  phone = '6285119973606'
+  phoneDisplay = '0851-1997-3606'
+  email = 'rklawyerandpartners@gmail.com'
+  address = ''
+  mapsEmbed = ''
+
+[params.services]
+  [[params.services.items]]
+    title = 'Cerai Gugat'
+    slug = 'cerai-gugat'
+    icon = '⚖️'
+    description = 'Bantuan hukum untuk istri yang ingin mengajukan gugatan cerai di Pengadilan Agama.'
+  [[params.services.items]]
+    title = 'Cerai Talak'
+    slug = 'cerai-talak'
+    icon = '📋'
+    description = 'Bantuan hukum untuk suami yang ingin mengajukan talak di Pengadilan Agama.'
+  [[params.services.items]]
+    title = 'Pembagian Waris'
+    slug = 'waris'
+    icon = '🏛️'
+    description = 'Penetapan dan pembagian harta waris menurut hukum Islam.'
+  [[params.services.items]]
+    title = 'Isbat Nikah'
+    slug = 'isbat-nikah'
+    icon = '💍'
+    description = 'Pengesahan nikah yang belum tercatat resmi di Pengadilan Agama.'
+  [[params.services.items]]
+    title = 'Hak Asuh Anak'
+    slug = 'hak-asuh-anak'
+    icon = '👨‍👩‍👧'
+    description = 'Penetapan hak asuh anak setelah perceraian.'
+  [[params.services.items]]
+    title = 'Harta Gono-Gini'
+    slug = 'harta-gono-gini'
+    icon = '💰'
+    description = 'Pembagian harta bersama suami istri setelah perceraian.'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[sitemap]
+  changefreq = 'monthly'
+  priority = 0.5
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  section = ['HTML', 'RSS']

@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>{{ .Site.Title }}</h3>
+        <p>Layanan konsultasi hukum keluarga Islam yang profesional dan terpercaya. Melayani cerai gugat, cerai talak, waris, isbat nikah, hak asuh anak, dan harta gono-gini.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Layanan</h3>
+        <ul>
+          {{ range .Site.Params.services.items }}
+          <li><a href="{{ .slug | absURL }}">{{ .icon }} {{ .title }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Kontak</h3>
+        <p>📞 <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga">{{ .Site.Params.phoneDisplay }}</a></p>
+        <p>📧 <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+        {{ with .Site.Params.address }}<p>📍 {{ . }}</p>{{ end }}
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ now.Year }} {{ .Site.Title }}. Hak cipta dilindungi.</p>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  💬
+</a>

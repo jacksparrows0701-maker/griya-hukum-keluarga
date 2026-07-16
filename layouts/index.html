@@ -1,0 +1,107 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <h1>Solusi Hukum Keluarga yang Terpercaya</h1>
+    <p>Bantuan hukum profesional untuk cerai gugat, cerai talak, waris, isbat nikah, hak asuh anak, dan harta gono-gini di Pengadilan Agama.</p>
+    <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="hero-cta" target="_blank" rel="noopener">
+      💬 Konsultasi Gratis via WhatsApp
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Layanan Kami</h2>
+    <p class="section-subtitle">Pilih layanan yang sesuai dengan kebutuhan hukum Anda</p>
+    <div class="service-grid">
+      {{ range .Site.Params.services.items }}
+      <div class="service-card">
+        <div class="icon">{{ .icon }}</div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+        <a href="{{ .slug | absURL }}" class="btn-link">Pelajari Lebih Lanjut →</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-white);">
+  <div class="container">
+    <h2 class="section-title">Kenapa Memilih Kami?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="number">4+</div>
+        <h4>Pengalaman</h4>
+        <p>Bertahun-tahun menangani kasus hukum keluarga di Pengadilan Agama</p>
+      </div>
+      <div class="why-card">
+        <div class="number">500+</div>
+        <h4>Kasus Ditangani</h4>
+        <p>Ribuan klien telah terbantu menyelesaikan masalah hukum keluarga</p>
+      </div>
+      <div class="why-card">
+        <div class="number">100%</div>
+        <h4>Terpercaya</h4>
+        <p>Transparan, profesional, dan menjaga kerahasiaan klien</p>
+      </div>
+      <div class="why-card">
+        <div class="number">24/7</div>
+        <h4>Konsultasi</h4>
+        <p>Layanan konsultasi tersedia kapan saja via WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Apa Kata Klien Kami</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Alhamdulillah, proses cerai gugat dibantu dari awal sampai selesai. Pengacaranya ramah dan profesional. Terima kasih Griya Hukum Keluarga."</blockquote>
+        <div class="author">— Ibu R., Bandung</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Isbat nikah saya dan suami sudah resmi tercatat. Prosesnya cepat dan tidak ribet. Sangat recommended!"</blockquote>
+        <div class="author">— Ibu S., Cimahi</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Pembagian waris ayah saya ditangani dengan tepat sesuai hukum Islam. Penjelasannya jelas dan mudah dipahami."</blockquote>
+        <div class="author">— Bapak A., Sumedang</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-white);">
+  <div class="container">
+    <h2 class="section-title">Artikel Terbaru</h2>
+    <div class="service-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      <div class="blog-item" style="margin-bottom: 0;">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="meta">{{ .Date.Format "02 January 2006" }}</div>
+        <p>{{ .Description }}</p>
+        <a href="{{ .Permalink }}" class="read-more">Baca selengkapnya →</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Butuh Konsultasi Hukum Keluarga?</h3>
+      <p>Jangan ragu untuk menghubungi kami. Konsultasi pertama gratis!</p>
+      <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="btn-wa" target="_blank" rel="noopener">
+        💬 Chat WhatsApp Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}

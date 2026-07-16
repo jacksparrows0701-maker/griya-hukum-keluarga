@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+</div>
+<div class="content-body">
+  {{ .Content }}
+  {{ with .Params.faq }}
+  <div class="faq-section">
+    <h2>Pertanyaan Umum (FAQ)</h2>
+    {{ range . }}
+    <details class="faq-item">
+      <summary>{{ .question }}</summary>
+      <div class="faq-answer">{{ .answer | markdownify }}</div>
+    </details>
+    {{ end }}
+  </div>
+  {{ end }}
+  <div class="cta-box">
+    <h3>Butuh Konsultasi?</h3>
+    <p>Hubungi kami untuk konsultasi hukum keluarga secara gratis dan terpercaya.</p>
+    <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20soal%20{{ urlize .Title }}" class="btn-wa" target="_blank" rel="noopener">
+      💬 Chat WhatsApp Sekarang
+    </a>
+  </div>
+</div>
+{{ end }}

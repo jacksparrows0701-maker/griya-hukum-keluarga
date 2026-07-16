@@ -1,0 +1,40 @@
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  "telephone": "{{ .Site.Params.phone }}",
+  "email": "{{ .Site.Params.email }}",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Indonesia"
+  },
+  "serviceType": ["Hukum Keluarga", "Cerai Gugat", "Cerai Talak", "Waris", "Isbat Nikah", "Hak Asuh Anak", "Harta Gono-Gini"],
+  "priceRange": "$$"
+}
+</script>
+{{ end }}
+{{ with .Params.faq }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ range $i, $item := . }}
+    {{ if $i }},{{ end }}
+    {
+      "@type": "Question",
+      "name": "{{ $item.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ $item.answer | plainify | htmlEscape }}"
+      }
+    }
+    {{ end }}
+  ]
+}
+</script>
+{{ end }}
