@@ -1,0 +1,25 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="{{ .Site.BaseURL }}"><span itemprop="name">Beranda</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      {{ if eq .Section "blog" }}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="{{ "blog" | absURL }}"><span itemprop="name">Artikel</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+        <span itemprop="name">{{ .Title }}</span>
+        <meta itemprop="position" content="3">
+      </li>
+      {{ else }}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+        <span itemprop="name">{{ .Title }}</span>
+        <meta itemprop="position" content="2">
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</nav>

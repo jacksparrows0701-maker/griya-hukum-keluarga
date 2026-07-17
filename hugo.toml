@@ -119,5 +119,5 @@ buildFuture = true
   pagerSize = 6
 
 [outputs]
-  home = ['HTML', 'RSS']
+  home = ['HTML', 'RSS', 'JSON']
   section = ['HTML', 'RSS']
