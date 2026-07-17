@@ -1,0 +1,10 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<div class="search-box">
+  <div id="searchData" data-url="{{ "index.json" | relURL }}" style="display:none;"></div>
+  <input type="text" id="searchInput" placeholder="Ketik kata kunci untuk mencari artikel..." autocomplete="off">
+  <div id="searchResults" class="search-results"></div>
+</div>
+{{ $js := resources.Get "js/search.js" | minify }}
+<script src="{{ $js.RelPermalink }}"></script>
+{{ end }}
