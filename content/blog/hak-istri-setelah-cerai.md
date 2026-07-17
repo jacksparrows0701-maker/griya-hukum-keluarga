@@ -11,7 +11,7 @@ tags:
   - hukum keluarga
 ---
 
-Banyak istri yang tidak tahu hak-hak mereka setelah perceraian. Padahal, hukum Islam memberikan beberapa hak yang wajib dipenuhi suami. Berikut penjelasan lengkapnya.
+Banyak istri yang tidak tahu hak-hak mereka setelah perceraian. Padahal, hukum Islam memberikan beberapa hak yang wajib dipenuhi suami. Jika suami tidak memberi nafkah, baca juga [cara mengatasi suami tidak nafkah](/suami-tidak-nafkah/). Berikut penjelasan lengkapnya.
 
 ## Hak Istri Setelah Cerai
 
@@ -51,7 +51,7 @@ Dalam beberapa kasus, istri berhak mendapatkan tempat tinggal sementara selama m
 
 ## Kesimpulan
 
-Istri memiliki banyak hak setelah cerai yang diatur dalam hukum Islam. Jangan ragu untuk memperjuangkan hak-hak Anda. Konsultasikan dengan pengacara untuk memastikan hak-hak Anda terpenuhi.
+Istri memiliki banyak hak setelah cerai yang diatur dalam hukum Islam. Jangan ragu untuk memperjuangkan hak-hak Anda. Pelajari juga tentang [hak asuh anak](/hak-asuh-anak/) dan [harta gono-gini](/harta-gono-gini/) untuk memastikan hak keluarga Anda terlindungi. Konsultasikan dengan pengacara untuk memastikan hak-hak Anda terpenuhi.
 
 Butuh bantuan? Hubungi kami via WhatsApp.
 

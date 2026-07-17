@@ -13,7 +13,7 @@ tags:
 
 "Berapa biaya cerai di Pengadilan Agama?" Ini adalah pertanyaan paling sering yang kami terima dari klien baru. Jawaban singkatnya: **Rp4.000.000 - Rp22.000.000** untuk cerai gugat atau cerai talak.
 
-Namun, biaya ini sangat bervariasi tergantung beberapa faktor. Berikut penjelasan lengkapnya.
+Namun, biaya ini sangat bervariasi tergantung beberapa faktor. Jika Anda berdomisili di Bandung, baca juga panduan [cerai gugat di PA Bandung](/cerai-gugat-pa-bandung-2026/). Berikut penjelasan lengkapnya.
 
 ## Komponen Biaya Cerai
 
@@ -43,10 +43,10 @@ Total biaya prosedural berkisar antara **Rp500.000 - Rp2.000.000**.
 
 | Jenis Cerai | Total Estimasi |
 |---|---|
-| Cerai Gugat (biasa) | Rp4.000.000 - Rp15.000.000 |
-| Cerai Gugat + Harta Gono-Gini | Rp8.000.000 - Rp22.000.000 |
-| Cerai Talak | Rp4.000.000 - Rp15.000.000 |
-| Cerai Talak + Hak Asuh Anak | Rp6.000.000 - Rp18.000.000 |
+| [Cerai Gugat](/cerai-gugat/) (biasa) | Rp4.000.000 - Rp15.000.000 |
+| Cerai Gugat + [Harta Gono-Gini](/harta-gono-gini/) | Rp8.000.000 - Rp22.000.000 |
+| [Cerai Talak](/cerai-talak/) | Rp4.000.000 - Rp15.000.000 |
+| Cerai Talak + [Hak Asuh Anak](/hak-asuh-anak/) | Rp6.000.000 - Rp18.000.000 |
 
 ## Faktor yang Mempengaruhi Biaya
 
@@ -84,6 +84,8 @@ Beberapa Pengadilan Agama menyediakan pos bantuan hukum (posbakum) gratis untuk 
 
 ## Perbandingan Biaya Cerai Gugat vs Cerai Talak
 
+Anda juga bisa membaca tentang [cara mengurus cerai tanpa pengacara](/cerai-tanpa-pengacara/) untuk pertimbangan lebih lanjut. Perbedaan utamanya terletak pada siapa yang menginisiasi:
+
 | Aspek | Cerai Gugat | Cerai Talak |
 |---|---|---|
 | Penginisiasi | Istri | Suami |
@@ -95,6 +97,6 @@ Secara umum, biaya cerai gugat dan cerai talak tidak jauh berbeda. Yang membedak
 
 ## Kesimpulan
 
-Biaya cerai di Pengadilan Agama berkisar antara **Rp4.000.000 - Rp22.000.000** tergantung jenis cerai dan kompleksitas kasus. Persiapkan dokumen dengan lengkap dan gunakan pengacara yang tepat untuk mengoptimalkan biaya.
+Biaya cerai di Pengadilan Agama berkisar antara **Rp4.000.000 - Rp22.000.000** tergantung jenis cerai dan kompleksitas kasus. Persiapkan dokumen dengan lengkap dan gunakan pengacara yang tepat untuk mengoptimalkan biaya. Pelajari juga [hak istri setelah cerai](/hak-istri-setelah-cerai/) agar Anda memahami hak-hak yang harus dipenuhi.
 
 Butuh perkiraan biaya yang lebih akurat? Hubungi kami via WhatsApp untuk konsultasi gratis.

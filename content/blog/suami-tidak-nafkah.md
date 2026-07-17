@@ -11,7 +11,7 @@ tags:
   - pengadilan agama
 ---
 
-Nafkah adalah kewajiban suami yang diatur dalam hukum Islam. Jika suami tidak memberi nafkah, istri memiliki hak untuk menuntut. Berikut cara mengatasinya.
+Nafkah adalah kewajiban suami yang diatur dalam hukum Islam. Jika suami tidak memberi nafkah, istri memiliki hak untuk menuntut. Baca juga tentang [hak istri setelah cerai](/hak-istri-setelah-cerai/) dan [cara mengurus cerai tanpa pengacara](/cerai-tanpa-pengacara/) sebagai alternatif. Berikut cara mengatasinya.
 
 ## Hak Istri atas Nafkah
 
@@ -43,6 +43,8 @@ Jika semua cara di atas tidak berhasil, ajukan gugatan ke Pengadilan Agama untuk
 - Bukti suami tidak memberi nafkah (rekening koran, keterangan tetangga)
 - Surat gugatan dari pengacara
 
+Anda bisa mengajukan gugatan nafkah melalui [layanan cerai gugat](/cerai-gugat/) kami. Proses gugatan nafkah mengikuti prosedur standar di Pengadilan Agama.
+
 ### Proses Gugatan
 1. Daftarkan gugatan di Pengadilan Agama
 2. Hadiri sidang
@@ -55,7 +57,7 @@ Jika semua cara di atas tidak berhasil, ajukan gugatan ke Pengadilan Agama untuk
 
 ## Alternatif: Cerai Jika Tidak Nafkah
 
-Jika suami benar-benar tidak mau memberi nafkah tanpa alasan yang jelas, istri bisa mengajukan cerai gugat dengan alasan suami tidak memberi nafkah.
+Jika suami benar-benar tidak mau memberi nafkah tanpa alasan yang jelas, istri bisa mengajukan cerai gugat dengan alasan suami tidak memberi nafkah. Lihat [estimasi biaya cerai](/biaya-cerai-2026/) dan [lama proses cerai gugat](/cerai-gugat-pa-bandung/) untuk persiapan lebih lanjut.
 
 ## Kesimpulan
 

@@ -10,11 +10,11 @@ tags:
   - pengadilan agama
 ---
 
-Banyak keluarga yang bertanya: "Bisa tidak membagi waris tanpa ke Pengadilan Agama?" Jawabannya: **bisa, jika semua ahli waris sepakat**. Berikut penjelasannya.
+Banyak keluarga yang bertanya: "Bisa tidak membagi waris tanpa ke Pengadilan Agama?" Jawabannya: **bisa, jika semua ahli waris sepakat**. Jika kasus Anda melibatkan perceraian, baca juga tentang [harta gono-gini](/harta-gono-gini/) dan [hak istri setelah cerai](/hak-istri-setelah-cerai/). Berikut penjelasannya.
 
 ## Bisa Tanpa ke Pengadilan?
 
-Pembagian waris **bisa** dilakukan tanpa ke Pengadilan Agama jika:
+[Pembagian waris](/waris/) **bisa** dilakukan tanpa ke Pengadilan Agama jika:
 - Semua ahli waris sudah dewasa
 - Semua ahli waris sepakat mengenai pembagian
 - Tidak ada perselisihan

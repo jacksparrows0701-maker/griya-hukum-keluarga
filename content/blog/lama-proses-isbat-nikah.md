@@ -10,7 +10,7 @@ tags:
   - pengadilan agama
 ---
 
-"Berapa lama proses isbat nikah?" Ini adalah pertanyaan kedua yang paling sering kami terima setelah soal biaya. Berikut jawaban lengkapnya.
+"Berapa lama proses isbat nikah?" Ini adalah pertanyaan kedua yang paling sering kami terima setelah soal biaya. Lihat juga [syarat isbat nikah](/syarat-isbat-nikah/) dan [rincian biaya isbat nikah](/biaya-isbat-nikah-2026/) untuk gambaran lengkap. Berikut jawaban lengkapnya.
 
 ## Estimasi Waktu Proses Isbat Nikah
 

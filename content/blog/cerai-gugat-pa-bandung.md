@@ -13,7 +13,7 @@ tags:
 
 Banyak klien yang bertanya: "Berapa lama sih proses cerai gugat di Pengadilan Agama?" Jawaban singkatnya: **3-6 bulan** dari awal pendaftaran hingga putusan berkekuatan hukum tetap.
 
-Namun, lama waktu ini sangat bergantung pada beberapa faktor. Berikut penjelasan lengkapnya.
+Untuk rincian biaya, baca juga [panduan biaya cerai 2026](/biaya-cerai-2026/). Namun, lama waktu ini sangat bergantung pada beberapa faktor. Berikut penjelasan lengkapnya.
 
 ## Estimasi Waktu Proses Cerai Gugat
 

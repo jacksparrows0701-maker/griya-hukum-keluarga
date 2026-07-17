@@ -10,7 +10,7 @@ tags:
   - pengadilan agama
 ---
 
-Pertanyaan paling umum dari klien kami: "Berapa biaya isbat nikah di Pengadilan Agama?" Berikut rincian lengkapnya.
+Pertanyaan paling umum dari klien kami: "Berapa biaya isbat nikah di Pengadilan Agama?" Sebelumnya, pastikan Anda sudah memahami [syarat isbat nikah](/syarat-isbat-nikah/) dan [estimasi waktu proses](/lama-proses-isbat-nikah/). Berikut rincian lengkapnya.
 
 ## Rincian Biaya Isbat Nikah
 
@@ -50,7 +50,7 @@ Proses isbat nikah di Pengadilan Agama biasanya memakan waktu **2-5 bulan** dari
 
 ## Kesimpulan
 
-Biaya isbat nikah berkisar antara **Rp2.850.000 - Rp15.900.000**. Persiapkan dokumen dengan lengkap dan gunakan pengacara yang tepat untuk mengoptimalkan biaya.
+Biaya isbat nikah berkisar antara **Rp2.850.000 - Rp15.900.000**. Persiapkan dokumen dengan lengkap dan gunakan pengacara yang tepat untuk mengoptimalkan biaya. Jika Anda juga memiliki masalah waris, baca panduan [cara mengurus waris](/urus-waris-tanpa-pengadilan/).
 
 Butuh perkiraan biaya yang lebih akurat? Hubungi kami via WhatsApp.
 

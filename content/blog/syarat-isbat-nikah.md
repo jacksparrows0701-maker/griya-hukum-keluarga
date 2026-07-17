@@ -11,11 +11,11 @@ tags:
   - pengesahan nikah
 ---
 
-Banyak pasangan yang menikah tanpa pencatatan resmi di KUA, baik karena nikah siri, nikah adat, atau alasan lainnya. Pertanyaannya: bagaimana cara mengesahkan nikah tersebut? Jawabannya adalah melalui **isbat nikah** di Pengadilan Agama.
+Banyak pasangan yang menikah tanpa pencatatan resmi di KUA, baik karena nikah siri, nikah adat, atau alasan lainnya. Pertanyaannya: bagaimana cara mengesahkan nikah tersebut? Jawabannya adalah melalui **isbat nikah** di Pengadilan Agama. Lihat juga [rincian biaya isbat nikah](/biaya-isbat-nikah-2026/) dan [estimasi waktu proses](/lama-proses-isbat-nikah/) sebelum memulai.
 
 ## Apa Itu Isbat Nikah?
 
-Isbat nikah adalah pengesahan nikah yang dilakukan di hadapan Pengadilan Agama. Proses ini diperlukan ketika pernikahan tidak tercatat resmi di KUA, sehingga pernikahan tersebut belum diakui secara hukum negara.
+[Isbat nikah](/isbat-nikah/) adalah pengesahan nikah yang dilakukan di hadapan Pengadilan Agama. Proses ini diperlukan ketika pernikahan tidak tercatat resmi di KUA, sehingga pernikahan tersebut belum diakui secara hukum negara.
 
 Isbat nikah sangat penting untuk memastikan kepastian hukum bagi suami istri dan anak-anak yang lahir dari pernikahan tersebut.
 
