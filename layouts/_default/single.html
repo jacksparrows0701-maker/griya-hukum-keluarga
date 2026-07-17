@@ -16,12 +16,23 @@
     {{ end }}
   </div>
   {{ end }}
+
+  {{ if eq .Section "blog" }}
+  <div class="cta-box" style="margin-top: 48px;">
+    <h3>Ada Pertanyaan Soal Ini?</h3>
+    <p>Jangan ragu untuk berkonsultasi. Kami siap membantu menjelaskan sesuai hukum Islam yang berlaku.</p>
+    <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20soal%20{{ urlize .Title }}" class="btn-wa" target="_blank" rel="noopener">
+      Tanya via WhatsApp
+    </a>
+  </div>
+  {{ else }}
   <div class="cta-box">
     <h3>Butuh Konsultasi?</h3>
     <p>Hubungi kami untuk konsultasi hukum keluarga secara gratis dan terpercaya.</p>
     <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20soal%20{{ urlize .Title }}" class="btn-wa" target="_blank" rel="noopener">
-      💬 Chat WhatsApp Sekarang
+      Chat WhatsApp Sekarang
     </a>
   </div>
+  {{ end }}
 </div>
 {{ end }}

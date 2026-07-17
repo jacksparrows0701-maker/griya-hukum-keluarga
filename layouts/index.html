@@ -4,19 +4,60 @@
     <h1>Solusi Hukum Keluarga yang Terpercaya</h1>
     <p>Bantuan hukum profesional untuk cerai gugat, cerai talak, waris, isbat nikah, hak asuh anak, dan harta gono-gini di Pengadilan Agama.</p>
     <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="hero-cta" target="_blank" rel="noopener">
-      💬 Konsultasi Gratis via WhatsApp
+      Konsultasi Gratis via WhatsApp
     </a>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="stat-number">4+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div class="stat-item fade-in">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Kasus Ditangani</div>
+      </div>
+      <div class="stat-item fade-in">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Klien Puas</div>
+      </div>
+      <div class="stat-item fade-in">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Konsultasi Online</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Layanan Kami</h2>
-    <p class="section-subtitle">Pilih layanan yang sesuai dengan kebutuhan hukum Anda</p>
+    <h2 class="section-title fade-in">Layanan Kami</h2>
+    <p class="section-subtitle fade-in">Pilih layanan yang sesuai dengan kebutuhan hukum Anda</p>
     <div class="service-grid">
       {{ range .Site.Params.services.items }}
-      <div class="service-card">
-        <div class="icon">{{ .icon }}</div>
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          {{ if eq .slug "cerai-gugat" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="12" x2="15" y2="14"/><path d="M5 19l3-7h8l3 7"/><line x1="8" y1="19" x2="16" y2="19"/></svg>
+          {{ else if eq .slug "cerai-talak" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          {{ else if eq .slug "waris" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
+          {{ else if eq .slug "isbat-nikah" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/></svg>
+          {{ else if eq .slug "hak-asuh-anak" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          {{ else if eq .slug "harta-gono-gini" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          {{ end }}
+        </div>
         <h3>{{ .title }}</h3>
         <p>{{ .description }}</p>
         <a href="{{ .slug | absURL }}" class="btn-link">Pelajari Lebih Lanjut →</a>
@@ -28,27 +69,35 @@
 
 <section class="section" style="background: var(--bg-white);">
   <div class="container">
-    <h2 class="section-title">Kenapa Memilih Kami?</h2>
+    <h2 class="section-title fade-in">Kenapa Memilih Kami?</h2>
     <div class="why-grid">
-      <div class="why-card">
-        <div class="number">4+</div>
-        <h4>Pengalaman</h4>
-        <p>Bertahun-tahun menangani kasus hukum keluarga di Pengadilan Agama</p>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h4>Berpengalaman</h4>
+        <p>Lebih dari 4 tahun menangani kasus hukum keluarga di Pengadilan Agama</p>
       </div>
-      <div class="why-card">
-        <div class="number">500+</div>
-        <h4>Kasus Ditangani</h4>
-        <p>Ribuan klien telah terbantu menyelesaikan masalah hukum keluarga</p>
-      </div>
-      <div class="why-card">
-        <div class="number">100%</div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
         <h4>Terpercaya</h4>
         <p>Transparan, profesional, dan menjaga kerahasiaan klien</p>
       </div>
-      <div class="why-card">
-        <div class="number">24/7</div>
-        <h4>Konsultasi</h4>
-        <p>Layanan konsultasi tersedia kapan saja via WhatsApp</p>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h4>Ramah & Profesional</h4>
+        <p>Tim kami siap membantu dengan pendekatan yang manusiawi</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h4>Mudah Diakses</h4>
+        <p>Konsultasi kapan saja via WhatsApp tanpa perlu datang ke kantor</p>
       </div>
     </div>
   </div>
@@ -56,22 +105,40 @@
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Apa Kata Klien Kami</h2>
+    <h2 class="section-title fade-in">Apa Kata Klien Kami</h2>
     <div class="testimonial-grid">
-      <div class="testimonial-card">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">IR</div>
+          <div>
+            <div class="testimonial-name">Ibu R.</div>
+            <div class="testimonial-location">Bandung</div>
+          </div>
+        </div>
         <div class="stars">★★★★★</div>
         <blockquote>"Alhamdulillah, proses cerai gugat dibantu dari awal sampai selesai. Pengacaranya ramah dan profesional. Terima kasih Griya Hukum Keluarga."</blockquote>
-        <div class="author">— Ibu R., Bandung</div>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">IS</div>
+          <div>
+            <div class="testimonial-name">Ibu S.</div>
+            <div class="testimonial-location">Cimahi</div>
+          </div>
+        </div>
         <div class="stars">★★★★★</div>
         <blockquote>"Isbat nikah saya dan suami sudah resmi tercatat. Prosesnya cepat dan tidak ribet. Sangat recommended!"</blockquote>
-        <div class="author">— Ibu S., Cimahi</div>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">BA</div>
+          <div>
+            <div class="testimonial-name">Bapak A.</div>
+            <div class="testimonial-location">Sumedang</div>
+          </div>
+        </div>
         <div class="stars">★★★★★</div>
         <blockquote>"Pembagian waris ayah saya ditangani dengan tepat sesuai hukum Islam. Penjelasannya jelas dan mudah dipahami."</blockquote>
-        <div class="author">— Bapak A., Sumedang</div>
       </div>
     </div>
   </div>
@@ -79,27 +146,30 @@
 
 <section class="section" style="background: var(--bg-white);">
   <div class="container">
-    <h2 class="section-title">Artikel Terbaru</h2>
+    <h2 class="section-title fade-in">Artikel Terbaru</h2>
     <div class="service-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-      <div class="blog-item" style="margin-bottom: 0;">
+      <div class="blog-item fade-in" style="margin-bottom: 0;">
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <div class="meta">{{ .Date.Format "02 January 2006" }}</div>
+        <div class="meta">{{ .Date.Format "02 January 2006" }} {{ with .Params.category }}· {{ . }}{{ end }}</div>
         <p>{{ .Description }}</p>
         <a href="{{ .Permalink }}" class="read-more">Baca selengkapnya →</a>
       </div>
       {{ end }}
+    </div>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="{{ "blog" | absURL }}" class="btn-outline">Lihat Semua Artikel →</a>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="cta-box">
+    <div class="cta-box fade-in">
       <h3>Butuh Konsultasi Hukum Keluarga?</h3>
       <p>Jangan ragu untuk menghubungi kami. Konsultasi pertama gratis!</p>
       <a href="https://wa.me/{{ .Site.Params.phone }}?text=Halo,%20saya%20ingin%20konsultasi%20hukum%20keluarga" class="btn-wa" target="_blank" rel="noopener">
-        💬 Chat WhatsApp Sekarang
+        Chat WhatsApp Sekarang
       </a>
     </div>
   </div>
