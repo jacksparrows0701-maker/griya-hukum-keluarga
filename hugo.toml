@@ -65,9 +65,24 @@ buildFuture = true
   weight = 4
 
 [[menus.main]]
+  name = 'FAQ'
+  url = '/faq'
+  weight = 5
+
+[[menus.main]]
+  name = 'Prosedur'
+  url = '/prosedur-hukum'
+  weight = 6
+
+[[menus.main]]
+  name = 'Dokumen'
+  url = '/persyaratan-dokumen'
+  weight = 7
+
+[[menus.main]]
   name = 'Konsultasi'
   url = '/konsultasi'
-  weight = 5
+  weight = 8
   params = { cta = true }
 
 [[menus.services]]

@@ -129,4 +129,12 @@ Hakim akan mempertimbangkan beberapa faktor dalam memutus hak asuh anak:
   <div class="faq-answer">Anak yang sudah cukup umur (biasanya di atas 12 tahun) bisa memberikan pendapat, namun keputusan akhir tetap ada di hakim berdasarkan kepentingan terbaik anak.</div>
 </details>
 
+## Artikel Terkait
+
+- [Biaya Cerai 2026](/blog/biaya-cerai-2026) — Estimasi biaya lengkap proses cerai di Pengadilan Agama
+- [Cerai Gugat di PA Bandung](/blog/cerai-gugat-pa-bandung-2026) — Panduan cerai gugat di wilayah Bandung
+- [Hak Istri Setelah Cerai](/blog/hak-istri-setelah-cerai) — Hak-hak istri yang perlu diketahui
+- [Suami Tidak Nafkah](/blog/suami-tidak-nafkah) — Solusi hukum jika suami tidak memberi nafkah
+- [Harta Gono-Gini](/harta-gono-gini) — Pembagian harta bersama setelah cerai
+
 {{< whatsapp "Halo, saya ingin konsultasi soal hak asuh anak" >}}

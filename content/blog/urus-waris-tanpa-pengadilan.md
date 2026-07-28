@@ -183,4 +183,13 @@ Syarat utama adalah semua ahli waris harus sepakat dan pembagian harus sesuai de
 
 Pembagian waris tanpa ke pengadilan **bisa** dilakukan jika semua ahli waris sepakat. Namun, untuk kepastian hukum, sebaiknya buat perjanjian tertulis di hadapan notaris. Jika ada perselisihan, selesaikan melalui Pengadilan Agama.
 
+## Artikel Terkait
+
+- [Pembagian Waris](/waris) — Panduan lengkap pembagian waris
+- [Biaya Isbat Nikah 2026](/blog/biaya-isbat-nikah-2026) — Estimasi biaya isbat nikah
+- [Harta Gono-Gini](/harta-gono-gini) — Perbedaan harta waris dengan harta gono-gini
+- [Hak Istri Setelah Cerai](/blog/hak-istri-setelah-cerai) — Hak-hak istri
+- [Persyaratan Dokumen](/persyaratan-dokumen) — Daftar lengkap dokumen yang dibutuhkan
+- [Prosedur Hukum](/prosedur-hukum) — Alur umum prosedur hukum keluarga
+
 Butuh bantuan hukum waris? Hubungi kami via WhatsApp.

@@ -172,4 +172,13 @@ Tidak, biaya yang tertera belum termasuk biaya transportasi dan akomodasi saksi.
 
 Biaya isbat nikah berkisar antara **Rp2.850.000 - Rp15.900.000**. Persiapkan dokumen dengan lengkap dan gunakan pengacara yang tepat untuk mengoptimalkan biaya. Jika Anda juga memiliki masalah waris, baca panduan [cara mengurus waris](/urus-waris-tanpa-pengadilan/).
 
+## Artikel Terkait
+
+- [Isbat Nikah](/isbat-nikah) — Panduan lengkap isbat nikah
+- [Syarat Isbat Nikah](/blog/syarat-isbat-nikah) — Persyaratan lengkap
+- [Lama Proses Isbat Nikah](/blog/lama-proses-isbat-nikah) — Estimasi waktu proses
+- [Pembagian Waris](/waris) — Isbat nikah berkaitan dengan waris
+- [Urus Waris Tanpa Pengadilan](/blog/urus-waris-tanpa-pengadilan) — Alternatif urus waris
+- [Persyaratan Dokumen](/persyaratan-dokumen) — Daftar lengkap dokumen yang dibutuhkan
+
 Butuh perkiraan biaya yang lebih akurat? Hubungi kami via WhatsApp.

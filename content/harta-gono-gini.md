@@ -141,4 +141,13 @@ Pasal 37 UU No. 1 Tahun 1974 menegaskan bahwa harta bersama suami istri harus di
   <div class="faq-answer">Ya, bisa melalui perjanjian pisah harta (prenuptial agreement). Namun, jika tidak ada perjanjian sebelumnya, pembagian biasanya dilakukan bersamaan dengan gugatan cerai.</div>
 </details>
 
+## Artikel Terkait
+
+- [Cerai Gugat](/cerai-gugat) — Harta gono-gini bisa digabung dengan gugatan cerai
+- [Cerai Talak](/cerai-talak) — Proses cerai talak dan harta gono-gini
+- [Hak Asuh Anak](/hak-asuh-anak) — Penetapan hak asuh anak
+- [Pembagian Waris](/waris) — Perbedaan harta gono-gini dengan harta waris
+- [Biaya Cerai 2026](/blog/biaya-cerai-2026) — Estimasi biaya proses cerai
+- [Persyaratan Dokumen](/persyaratan-dokumen) — Daftar lengkap dokumen yang dibutuhkan
+
 {{< whatsapp "Halo, saya ingin konsultasi soal harta gono-gini" >}}

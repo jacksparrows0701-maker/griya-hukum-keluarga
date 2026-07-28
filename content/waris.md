@@ -132,4 +132,12 @@ Surah An-Nisa ayat 11 menegaskan bahwa Allah mensyariatkan bagi kalian tentang a
   <div class="faq-answer">Bisa, jika semua ahli waris sepakat. Namun, untuk kepastian hukum, sebaiknya buat perjanjian tertulis di hadapan notaris.</div>
 </details>
 
+## Artikel Terkait
+
+- [Urus Waris Tanpa Pengadilan](/blog/urus-waris-tanpa-pengadilan) — Caraurus waris tanpa harus ke pengadilan
+- [Harta Gono-Gini](/harta-gono-gini) — Perbedaan harta waris dengan harta gono-gini
+- [Hak Asuh Anak](/hak-asuh-anak) — Penetapan hak asuh anak setelah perceraian
+- [Biaya Cerai 2026](/blog/biaya-cerai-2026) — Estimasi biaya proses cerai
+- [Cerai Gugat](/cerai-gugat) — Panduan lengkap cerai gugat
+
 {{< whatsapp "Halo, saya ingin konsultasi soal pembagian waris" >}}

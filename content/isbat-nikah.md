@@ -134,4 +134,12 @@ Proses kombinasi isbat nikah dan PAW dilakukan dalam satu persidangan, sehingga 
   <div class="faq-answer">Secara umum memerlukan kehadiran kedua belah pihak. Namapi dalam kondisi tertentu seperti suami tidak diketahui keberadaannya, pengadilan bisa memproses tanpa kehadiran suami.</div>
 </details>
 
+## Artikel Terkait
+
+- [Biaya Isbat Nikah 2026](/blog/biaya-isbat-nikah-2026) — Estimasi biaya isbat nikah
+- [Syarat Isbat Nikah](/blog/syarat-isbat-nikah) — Persyaratan lengkap
+- [Lama Proses Isbat Nikah](/blog/lama-proses-isbat-nikah) — Estimasi waktu proses
+- [Pembagian Waris](/waris) — Isbat nikah berkaitan dengan waris
+- [Persyaratan Dokumen](/persyaratan-dokumen) — Daftar lengkap dokumen yang dibutuhkan
+
 {{< whatsapp "Halo, saya ingin konsultasi soal isbat nikah" >}}
