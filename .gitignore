@@ -5,6 +5,12 @@ resources/_gen/
 # Hugo temp
 .hugo_build.lock
 
+# Graphify
+graphify-out/
+
+# OpenCode
+.opencode/
+
 # OS
 .DS_Store
 Thumbs.db
