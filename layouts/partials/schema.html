@@ -8,15 +8,51 @@
   "url": "{{ .Site.BaseURL }}",
   "telephone": "{{ .Site.Params.phone }}",
   "email": "{{ .Site.Params.email }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Palasari No.149, Palasari",
+    "addressLocality": "Bandung",
+    "addressRegion": "Jawa Barat",
+    "postalCode": "40615",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -6.9475,
+    "longitude": 107.7131
+  },
   "areaServed": {
     "@type": "Country",
     "name": "Indonesia"
   },
   "serviceType": ["Hukum Keluarga", "Cerai Gugat", "Cerai Talak", "Waris", "Isbat Nikah", "Hak Asuh Anak", "Harta Gono-Gini"],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  }
 }
 </script>
 {{ end }}
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ .Site.BaseURL }}cari?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{ end }}
+
 {{ with .Params.faq }}
 <script type="application/ld+json">
 {
@@ -35,6 +71,18 @@
     }
     {{ end }}
   ]
+}
+</script>
+{{ end }}
+
+{{ if .IsSection }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "url": "{{ .Permalink }}"
 }
 </script>
 {{ end }}

@@ -1,0 +1,791 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "divorce_knowledge_base",
+        "label": "Divorce Knowledge Base",
+        "nodes": [
+          "content_blog_biaya_cerai_2026",
+          "content_blog_cerai_tanpa_pengacara",
+          "content_blog_hak_istri_setelah_cerai",
+          "content_blog_suami_tidak_nafkah"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "content/blog/_index.md"
+      },
+      {
+        "id": "core_legal_services",
+        "label": "Core Islamic Family Law Services",
+        "nodes": [
+          "content_cerai_gugat_index",
+          "content_cerai_talak",
+          "content_hak_asuh_anak",
+          "content_harta_gono_gini",
+          "content_isbat_nikah",
+          "content_waris"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "content/_index.md"
+      },
+      {
+        "id": "divorce_information_flow",
+        "label": "Divorce Information & Cost Flow",
+        "nodes": [
+          "content_blog_biaya_cerai_2026",
+          "content_blog_cerai_gugat_pa_bandung",
+          "content_blog_cerai_tanpa_pengacara",
+          "content_blog_hak_istri_setelah_cerai"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "content/blog/biaya-cerai-2026.md"
+      },
+      {
+        "id": "hugo_layout_system",
+        "label": "Hugo Layout System",
+        "nodes": [
+          "layouts_default_baseof",
+          "layouts_index",
+          "layouts_default_list",
+          "layouts_default_single"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0
+      },
+      {
+        "id": "site_partials",
+        "label": "Global Site Components",
+        "nodes": [
+          "layouts_partials_header",
+          "layouts_partials_footer",
+          "layouts_partials_breadcrumbs",
+          "layouts_partials_schema"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "graphify.js",
+      "file_type": "code",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "graphify.js",
+      "id": "opencode_plugins_graphify"
+    },
+    {
+      "label": "GraphifyPlugin()",
+      "file_type": "code",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "graphifyplugin()",
+      "id": "opencode_plugins_graphify_graphifyplugin"
+    },
+    {
+      "label": "IMPORTANT: keep the reminder string free of backticks and $(...) constructs.",
+      "file_type": "rationale",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "important: keep the reminder string free of backticks and $(...) constructs.",
+      "id": "opencode_plugins_graphify_rationale_4"
+    },
+    {
+      "label": "search.js",
+      "file_type": "code",
+      "source_file": "assets/js/search.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "search.js",
+      "id": "assets_js_search"
+    },
+    {
+      "label": "GitHub Deployment Workflow",
+      "file_type": "code",
+      "source_file": ".github/workflows/deploy.yml",
+      "community": 14,
+      "norm_label": "github deployment workflow",
+      "id": "github_workflows_deploy"
+    },
+    {
+      "label": "Home Page",
+      "file_type": "document",
+      "source_file": "content/_index.md",
+      "community": 11,
+      "norm_label": "home page",
+      "id": "content_index"
+    },
+    {
+      "label": "Cerai Gugat Service",
+      "file_type": "document",
+      "source_file": "content/cerai-gugat/_index.md",
+      "community": 0,
+      "norm_label": "cerai gugat service",
+      "id": "content_cerai_gugat_index"
+    },
+    {
+      "label": "Cerai Talak Service",
+      "file_type": "document",
+      "source_file": "content/cerai-talak.md",
+      "community": 0,
+      "norm_label": "cerai talak service",
+      "id": "content_cerai_talak"
+    },
+    {
+      "label": "Hak Asuh Anak Service",
+      "file_type": "document",
+      "source_file": "content/hak-asuh-anak.md",
+      "community": 10,
+      "norm_label": "hak asuh anak service",
+      "id": "content_hak_asuh_anak"
+    },
+    {
+      "label": "Harta Gono-Gini Service",
+      "file_type": "document",
+      "source_file": "content/harta-gono-gini.md",
+      "community": 6,
+      "norm_label": "harta gono-gini service",
+      "id": "content_harta_gono_gini"
+    },
+    {
+      "label": "Isbat Nikah Service",
+      "file_type": "document",
+      "source_file": "content/isbat-nikah.md",
+      "community": 0,
+      "norm_label": "isbat nikah service",
+      "id": "content_isbat_nikah"
+    },
+    {
+      "label": "Pembagian Waris Service",
+      "file_type": "document",
+      "source_file": "content/waris.md",
+      "community": 0,
+      "norm_label": "pembagian waris service",
+      "id": "content_waris"
+    },
+    {
+      "label": "FAQ Page",
+      "file_type": "document",
+      "source_file": "content/faq.md",
+      "community": 0,
+      "norm_label": "faq page",
+      "id": "content_faq"
+    },
+    {
+      "label": "Consultation Page",
+      "file_type": "document",
+      "source_file": "content/konsultasi.md",
+      "community": 12,
+      "norm_label": "consultation page",
+      "id": "content_konsultasi"
+    },
+    {
+      "label": "Document Requirements",
+      "file_type": "document",
+      "source_file": "content/persyaratan-dokumen.md",
+      "community": 0,
+      "norm_label": "document requirements",
+      "id": "content_persyaratan_dokumen"
+    },
+    {
+      "label": "Legal Procedures",
+      "file_type": "document",
+      "source_file": "content/prosedur-hukum.md",
+      "community": 0,
+      "norm_label": "legal procedures",
+      "id": "content_prosedur_hukum"
+    },
+    {
+      "label": "About Us",
+      "file_type": "document",
+      "source_file": "content/tentang.md",
+      "community": 13,
+      "norm_label": "about us",
+      "id": "content_tentang"
+    },
+    {
+      "label": "Blog: Divorce Costs 2026",
+      "file_type": "document",
+      "source_file": "content/blog/biaya-cerai-2026.md",
+      "community": 0,
+      "norm_label": "blog: divorce costs 2026",
+      "id": "content_blog_biaya_cerai_2026"
+    },
+    {
+      "label": "Blog: Isbat Nikah Costs 2026",
+      "file_type": "document",
+      "source_file": "content/blog/biaya-isbat-nikah-2026.md",
+      "community": 5,
+      "norm_label": "blog: isbat nikah costs 2026",
+      "id": "content_blog_biaya_isbat_nikah_2026"
+    },
+    {
+      "label": "Blog: PA Bandung Divorce Guide",
+      "file_type": "document",
+      "source_file": "content/blog/cerai-gugat-pa-bandung-2026.md",
+      "community": 0,
+      "norm_label": "blog: pa bandung divorce guide",
+      "id": "content_blog_cerai_gugat_pa_bandung_2026"
+    },
+    {
+      "label": "Blog: Divorce Process Duration",
+      "file_type": "document",
+      "source_file": "content/blog/cerai-gugat-pa-bandung.md",
+      "community": 8,
+      "norm_label": "blog: divorce process duration",
+      "id": "content_blog_cerai_gugat_pa_bandung"
+    },
+    {
+      "label": "Blog: Divorce Without Lawyer",
+      "file_type": "document",
+      "source_file": "content/blog/cerai-tanpa-pengacara.md",
+      "community": 3,
+      "norm_label": "blog: divorce without lawyer",
+      "id": "content_blog_cerai_tanpa_pengacara"
+    },
+    {
+      "label": "Blog: Wife's Rights After Divorce",
+      "file_type": "document",
+      "source_file": "content/blog/hak-istri-setelah-cerai.md",
+      "community": 3,
+      "norm_label": "blog: wife's rights after divorce",
+      "id": "content_blog_hak_istri_setelah_cerai"
+    },
+    {
+      "label": "Blog: Isbat Nikah Duration",
+      "file_type": "document",
+      "source_file": "content/blog/lama-proses-isbat-nikah.md",
+      "community": 9,
+      "norm_label": "blog: isbat nikah duration",
+      "id": "content_blog_lama_proses_isbat_nikah"
+    },
+    {
+      "label": "Blog: Husband Not Providing Alimony",
+      "file_type": "document",
+      "source_file": "content/blog/suami-tidak-nafkah.md",
+      "community": 3,
+      "norm_label": "blog: husband not providing alimony",
+      "id": "content_blog_suami_tidak_nafkah"
+    },
+    {
+      "label": "Blog: Isbat Nikah Requirements",
+      "file_type": "document",
+      "source_file": "content/blog/syarat-isbat-nikah.md",
+      "community": 5,
+      "norm_label": "blog: isbat nikah requirements",
+      "id": "content_blog_syarat_isbat_nikah"
+    },
+    {
+      "label": "Blog: Inheritance Without Court",
+      "file_type": "document",
+      "source_file": "content/blog/urus-waris-tanpa-pengadilan.md",
+      "community": 6,
+      "norm_label": "blog: inheritance without court",
+      "id": "content_blog_urus_waris_tanpa_pengadilan"
+    },
+    {
+      "label": "Islamic Family Law",
+      "file_type": "concept",
+      "source_file": null,
+      "community": 0,
+      "norm_label": "islamic family law",
+      "id": "concept_hukum_keluarga_islam"
+    },
+    {
+      "label": "Home Page Template",
+      "file_type": "code",
+      "source_file": "layouts/index.html",
+      "community": 1,
+      "norm_label": "home page template",
+      "id": "layouts_index"
+    },
+    {
+      "label": "Base Layout",
+      "file_type": "code",
+      "source_file": "layouts/_default/baseof.html",
+      "verification": "unverified",
+      "community": 1,
+      "norm_label": "base layout",
+      "id": "layouts_default_baseof"
+    },
+    {
+      "label": "List Page Template",
+      "file_type": "code",
+      "source_file": "layouts/_default/list.html",
+      "community": 1,
+      "norm_label": "list page template",
+      "id": "layouts_default_list"
+    },
+    {
+      "label": "Single Page Template",
+      "file_type": "code",
+      "source_file": "layouts/_default/single.html",
+      "verification": "unverified",
+      "community": 1,
+      "norm_label": "single page template",
+      "id": "layouts_default_single"
+    },
+    {
+      "label": "Search Page Template",
+      "file_type": "code",
+      "source_file": "layouts/cari/single.html",
+      "community": 1,
+      "norm_label": "search page template",
+      "id": "layouts_cari_single"
+    },
+    {
+      "label": "Breadcrumbs Partial",
+      "file_type": "code",
+      "source_file": "layouts/partials/breadcrumbs.html",
+      "community": 1,
+      "norm_label": "breadcrumbs partial",
+      "id": "layouts_partials_breadcrumbs"
+    },
+    {
+      "label": "Footer Partial",
+      "file_type": "code",
+      "source_file": "layouts/partials/footer.html",
+      "community": 1,
+      "norm_label": "footer partial",
+      "id": "layouts_partials_footer"
+    },
+    {
+      "label": "Header Partial",
+      "file_type": "code",
+      "source_file": "layouts/partials/header.html",
+      "community": 1,
+      "norm_label": "header partial",
+      "id": "layouts_partials_header"
+    },
+    {
+      "label": "Schema.org Partial",
+      "file_type": "code",
+      "source_file": "layouts/partials/schema.html",
+      "community": 1,
+      "norm_label": "schema.org partial",
+      "id": "layouts_partials_schema"
+    },
+    {
+      "label": "FAQ Shortcode",
+      "file_type": "code",
+      "source_file": "layouts/shortcodes/faq.html",
+      "community": 15,
+      "norm_label": "faq shortcode",
+      "id": "layouts_shortcodes_faq"
+    },
+    {
+      "label": "Info Box Shortcode",
+      "file_type": "code",
+      "source_file": "layouts/shortcodes/info.html",
+      "community": 16,
+      "norm_label": "info box shortcode",
+      "id": "layouts_shortcodes_info"
+    },
+    {
+      "label": "Warning Box Shortcode",
+      "file_type": "code",
+      "source_file": "layouts/shortcodes/warning.html",
+      "community": 17,
+      "norm_label": "warning box shortcode",
+      "id": "layouts_shortcodes_warning"
+    },
+    {
+      "label": "WhatsApp Button Shortcode",
+      "file_type": "code",
+      "source_file": "layouts/shortcodes/whatsapp.html",
+      "verification": "unverified",
+      "community": 18,
+      "norm_label": "whatsapp button shortcode",
+      "id": "layouts_shortcodes_whatsapp"
+    },
+    {
+      "label": "Default Archetype",
+      "file_type": "code",
+      "source_file": "archetypes/default.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "verification": "unverified",
+      "id": "archetypes_default_md",
+      "community": 2,
+      "norm_label": "default archetype"
+    },
+    {
+      "label": "Cari Artikel",
+      "file_type": "document",
+      "source_file": "content/cari.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "content_cari_md",
+      "community": 2,
+      "norm_label": "cari artikel"
+    },
+    {
+      "label": "Hugo Archetype System",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "hugo_archetype_system",
+      "community": 2,
+      "norm_label": "hugo archetype system"
+    },
+    {
+      "label": "Griya Hukum Keluarga",
+      "file_type": "concept",
+      "source_file": "content/cari.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "griya_hukum_keluarga",
+      "community": 2,
+      "norm_label": "griya hukum keluarga"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "opencode_plugins_graphify",
+      "target": "opencode_plugins_graphify_graphifyplugin"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "opencode_plugins_graphify_rationale_4",
+      "target": "opencode_plugins_graphify"
+    },
+    {
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "content/cerai-gugat/_index.md",
+      "source": "content_cerai_gugat_index",
+      "target": "concept_hukum_keluarga_islam"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/cerai-gugat/_index.md",
+      "source": "content_cerai_gugat_index",
+      "target": "content_blog_biaya_cerai_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/cerai-talak.md",
+      "source": "content_cerai_talak",
+      "target": "content_cerai_gugat_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/faq.md",
+      "source": "content_faq",
+      "target": "content_cerai_gugat_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/persyaratan-dokumen.md",
+      "source": "content_persyaratan_dokumen",
+      "target": "content_cerai_gugat_index"
+    },
+    {
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "content/cerai-talak.md",
+      "source": "content_cerai_talak",
+      "target": "concept_hukum_keluarga_islam"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/faq.md",
+      "source": "content_faq",
+      "target": "content_cerai_talak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/blog/urus-waris-tanpa-pengadilan.md",
+      "source": "content_blog_urus_waris_tanpa_pengadilan",
+      "target": "content_harta_gono_gini"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/isbat-nikah.md",
+      "source": "content_isbat_nikah",
+      "target": "content_waris"
+    },
+    {
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "content/waris.md",
+      "source": "content_waris",
+      "target": "concept_hukum_keluarga_islam"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/prosedur-hukum.md",
+      "source": "content_prosedur_hukum",
+      "target": "content_persyaratan_dokumen"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/blog/biaya-cerai-2026.md",
+      "source": "content_blog_biaya_cerai_2026",
+      "target": "content_blog_cerai_gugat_pa_bandung_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/blog/biaya-isbat-nikah-2026.md",
+      "source": "content_blog_biaya_isbat_nikah_2026",
+      "target": "content_blog_syarat_isbat_nikah"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/blog/cerai-tanpa-pengacara.md",
+      "source": "content_blog_cerai_tanpa_pengacara",
+      "target": "content_blog_hak_istri_setelah_cerai"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/blog/hak-istri-setelah-cerai.md",
+      "source": "content_blog_hak_istri_setelah_cerai",
+      "target": "content_blog_suami_tidak_nafkah"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/index.html",
+      "source": "layouts_index",
+      "target": "layouts_default_baseof"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/cari/single.html",
+      "source": "layouts_cari_single",
+      "target": "layouts_default_baseof"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/_default/baseof.html",
+      "source": "layouts_default_baseof",
+      "target": "layouts_partials_footer"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/_default/baseof.html",
+      "source": "layouts_default_baseof",
+      "target": "layouts_partials_header"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/_default/baseof.html",
+      "source": "layouts_default_baseof",
+      "target": "layouts_partials_schema"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/_default/list.html",
+      "source": "layouts_default_list",
+      "target": "layouts_default_baseof"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/_default/single.html",
+      "source": "layouts_default_single",
+      "target": "layouts_default_baseof"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/_default/single.html",
+      "source": "layouts_default_single",
+      "target": "layouts_partials_breadcrumbs"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "layouts/cari/single.html",
+      "source": "layouts_cari_single",
+      "target": "layouts_partials_breadcrumbs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "archetypes/default.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "archetypes_default_md",
+      "target": "hugo_archetype_system"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "content/cari.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "content_cari_md",
+      "target": "archetypes_default_md"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/cari.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "content_cari_md",
+      "target": "griya_hukum_keluarga"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "divorce_knowledge_base",
+      "label": "Divorce Knowledge Base",
+      "nodes": [
+        "content_blog_biaya_cerai_2026",
+        "content_blog_cerai_tanpa_pengacara",
+        "content_blog_hak_istri_setelah_cerai",
+        "content_blog_suami_tidak_nafkah"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "content/blog/_index.md"
+    },
+    {
+      "id": "core_legal_services",
+      "label": "Core Islamic Family Law Services",
+      "nodes": [
+        "content_cerai_gugat_index",
+        "content_cerai_talak",
+        "content_hak_asuh_anak",
+        "content_harta_gono_gini",
+        "content_isbat_nikah",
+        "content_waris"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/_index.md"
+    },
+    {
+      "id": "divorce_information_flow",
+      "label": "Divorce Information & Cost Flow",
+      "nodes": [
+        "content_blog_biaya_cerai_2026",
+        "content_blog_cerai_gugat_pa_bandung",
+        "content_blog_cerai_tanpa_pengacara",
+        "content_blog_hak_istri_setelah_cerai"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "content/blog/biaya-cerai-2026.md"
+    },
+    {
+      "id": "hugo_layout_system",
+      "label": "Hugo Layout System",
+      "nodes": [
+        "layouts_default_baseof",
+        "layouts_index",
+        "layouts_default_list",
+        "layouts_default_single"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "id": "site_partials",
+      "label": "Global Site Components",
+      "nodes": [
+        "layouts_partials_header",
+        "layouts_partials_footer",
+        "layouts_partials_breadcrumbs",
+        "layouts_partials_schema"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    }
+  ],
+  "built_at_commit": "c1bd3410b74a801e19bbcccf083bad487d65be31"
+}

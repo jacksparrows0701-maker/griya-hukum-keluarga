@@ -1,0 +1,221 @@
+{
+  "communities": {
+    "0": [
+      "concept_hukum_keluarga_islam",
+      "content_blog_biaya_cerai_2026",
+      "content_blog_cerai_gugat_pa_bandung_2026",
+      "content_cerai_gugat_index",
+      "content_cerai_talak",
+      "content_faq",
+      "content_isbat_nikah",
+      "content_persyaratan_dokumen",
+      "content_prosedur_hukum",
+      "content_waris"
+    ],
+    "1": [
+      "layouts_cari_single",
+      "layouts_default_baseof",
+      "layouts_default_list",
+      "layouts_default_single",
+      "layouts_index",
+      "layouts_partials_breadcrumbs",
+      "layouts_partials_footer",
+      "layouts_partials_header",
+      "layouts_partials_schema"
+    ],
+    "2": [
+      "archetypes_default_md",
+      "content_cari_md",
+      "griya_hukum_keluarga",
+      "hugo_archetype_system"
+    ],
+    "3": [
+      "content_blog_cerai_tanpa_pengacara",
+      "content_blog_hak_istri_setelah_cerai",
+      "content_blog_suami_tidak_nafkah"
+    ],
+    "4": [
+      "opencode_plugins_graphify",
+      "opencode_plugins_graphify_graphifyplugin",
+      "opencode_plugins_graphify_rationale_4"
+    ],
+    "5": [
+      "content_blog_biaya_isbat_nikah_2026",
+      "content_blog_syarat_isbat_nikah"
+    ],
+    "6": [
+      "content_blog_urus_waris_tanpa_pengadilan",
+      "content_harta_gono_gini"
+    ],
+    "7": [
+      "assets_js_search"
+    ],
+    "8": [
+      "content_blog_cerai_gugat_pa_bandung"
+    ],
+    "9": [
+      "content_blog_lama_proses_isbat_nikah"
+    ],
+    "10": [
+      "content_hak_asuh_anak"
+    ],
+    "11": [
+      "content_index"
+    ],
+    "12": [
+      "content_konsultasi"
+    ],
+    "13": [
+      "content_tentang"
+    ],
+    "14": [
+      "github_workflows_deploy"
+    ],
+    "15": [
+      "layouts_shortcodes_faq"
+    ],
+    "16": [
+      "layouts_shortcodes_info"
+    ],
+    "17": [
+      "layouts_shortcodes_warning"
+    ],
+    "18": [
+      "layouts_shortcodes_whatsapp"
+    ]
+  },
+  "cohesion": {
+    "0": 0.24444444444444444,
+    "1": 0.25,
+    "2": 0.5,
+    "3": 0.6666666666666666,
+    "4": 0.6666666666666666,
+    "5": 1.0,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0
+  },
+  "gods": [
+    {
+      "id": "layouts_default_baseof",
+      "label": "Base Layout",
+      "degree": 7
+    },
+    {
+      "id": "content_cerai_gugat_index",
+      "label": "Cerai Gugat Service",
+      "degree": 5
+    },
+    {
+      "id": "content_cerai_talak",
+      "label": "Cerai Talak Service",
+      "degree": 3
+    },
+    {
+      "id": "content_waris",
+      "label": "Pembagian Waris Service",
+      "degree": 2
+    },
+    {
+      "id": "content_faq",
+      "label": "FAQ Page",
+      "degree": 2
+    },
+    {
+      "id": "content_persyaratan_dokumen",
+      "label": "Document Requirements",
+      "degree": 2
+    },
+    {
+      "id": "content_blog_biaya_cerai_2026",
+      "label": "Blog: Divorce Costs 2026",
+      "degree": 2
+    },
+    {
+      "id": "content_blog_hak_istri_setelah_cerai",
+      "label": "Blog: Wife's Rights After Divorce",
+      "degree": 2
+    },
+    {
+      "id": "layouts_default_single",
+      "label": "Single Page Template",
+      "degree": 2
+    },
+    {
+      "id": "layouts_cari_single",
+      "label": "Search Page Template",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Cari Artikel",
+      "target": "Default Archetype",
+      "source_files": [
+        "content/cari.md",
+        "archetypes/default.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "Cerai Gugat Service",
+      "target": "Blog: Divorce Costs 2026",
+      "source_files": [
+        "content/cerai-gugat/_index.md",
+        "content/blog/biaya-cerai-2026.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `Blog: Divorce Costs 2026` unexpectedly reaches hub `Cerai Gugat Service`"
+    },
+    {
+      "source": "FAQ Page",
+      "target": "Cerai Gugat Service",
+      "source_files": [
+        "content/faq.md",
+        "content/cerai-gugat/_index.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `FAQ Page` unexpectedly reaches hub `Cerai Gugat Service`"
+    },
+    {
+      "source": "Document Requirements",
+      "target": "Cerai Gugat Service",
+      "source_files": [
+        "content/persyaratan-dokumen.md",
+        "content/cerai-gugat/_index.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `Document Requirements` unexpectedly reaches hub `Cerai Gugat Service`"
+    },
+    {
+      "source": "Home Page Template",
+      "target": "Base Layout",
+      "source_files": [
+        "layouts/index.html",
+        "layouts/_default/baseof.html"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "implements",
+      "why": "peripheral node `Home Page Template` unexpectedly reaches hub `Base Layout`"
+    }
+  ],
+  "tokens": {
+    "input": 985,
+    "output": 438
+  }
+}

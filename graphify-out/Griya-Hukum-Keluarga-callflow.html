@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Griya Hukum Keluarga — Complete Call Flow &amp; Architecture Documentation</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #0f172a; --surface: #1e293b; --border: #334155;
+  --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8;
+  --warn: #fbbf24; --err: #f87171; --ok: #34d399;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2.4rem; margin-bottom: 8px; background: linear-gradient(135deg, var(--accent), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.7rem; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.25rem; margin: 32px 0 12px; color: var(--accent); }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--warn); }
+p { margin: 8px 0; color: var(--muted); }
+.subtitle { color: var(--muted); font-size: 1.1rem; margin-bottom: 32px; }
+.mermaid { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; overflow-x: auto; position: relative; }
+.mermaid.is-enhanced { padding: 0; overflow: hidden; min-height: 260px; }
+.mermaid-viewport { padding: 54px 24px 24px; overflow: hidden; cursor: grab; touch-action: none; min-height: 260px; }
+.mermaid-viewport.is-dragging { cursor: grabbing; }
+.mermaid-viewport svg { max-width: none !important; height: auto; transform-origin: 0 0; transition: transform 120ms ease; }
+.mermaid-toolbar { position: absolute; top: 10px; right: 10px; z-index: 3; display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(15,23,42,0.92); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.28); }
+.mermaid-toolbar button, .mermaid-toolbar .zoom-level { height: 28px; min-width: 32px; border: 1px solid var(--border); border-radius: 6px; background: #1e293b; color: var(--text); font: 600 0.78rem system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; }
+.mermaid-toolbar button { cursor: pointer; }
+.mermaid-toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+.mermaid-toolbar .zoom-level { min-width: 52px; color: var(--muted); background: transparent; }
+.call-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+.call-table th { background: #1a2744; color: var(--accent); text-align: left; padding: 10px 14px; border: 1px solid var(--border); }
+.call-table td { padding: 8px 14px; border: 1px solid var(--border); vertical-align: top; }
+.call-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+.tag-async { background: #7c3aed33; color: #a78bfa; }
+.tag-class { background: #05966933; color: var(--ok); }
+.tag-func { background: #2563eb33; color: var(--accent); }
+.tag-cmd { background: #d9770633; color: var(--warn); }
+.tag-endpoint { background: #dc262633; color: var(--err); }
+.tag-hook { background: #db277733; color: #f472b6; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 16px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin: 16px 0; }
+.arrow-chain { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--accent); padding: 10px; background: rgba(56,189,248,0.06); border-radius: 6px; }
+code { font-family: 'Fira Code', 'Cascadia Code', monospace; background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 3px; font-size: 0.88em; }
+ul, ol { margin: 8px 0 8px 24px; color: var(--muted); }
+li { margin: 4px 0; }
+a { color: var(--accent); }
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.nav { position: sticky; top: 0; background: var(--bg); z-index: 10; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .container { padding: 16px; } h1 { font-size: 1.8rem; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Griya Hukum Keluarga — Complete Call Flow &amp; Architecture Documentation</h1>
+<p class="subtitle">Generated from graphify knowledge graph: 45 nodes, 29 edges, 19 communities. Commit: c1bd341</p>
+
+<div class="nav">
+    <a href="#overview">Architecture Overview</a>
+    <a href="#outputs-docs">Outputs &amp; Docs</a>
+    <a href="#cli-skills">CLI &amp; Skill Installers</a>
+    <a href="#serve-api">Serving API</a>
+    <a href="#content-cerai-service">Content Cerai Service</a>
+    <a href="#archetype-content-carimd">Archetype Content Carimd</a>
+    <a href="#blog-content-divorce">Blog Content Divorce</a>
+    <a href="#blog-isbat-nikah">Blog Isbat Nikah</a>
+    <a href="#harta-gono-content">Harta Gono Content</a>
+    <a href="#hak-asuh-anak">Hak Asuh Anak</a>
+    <a href="#home-page-content">Home Page Content</a>
+    <a href="#consultation-page-content">Consultation Page Content</a>
+    <a href="#about-content-tentangmd">About Content Tentangmd</a>
+    <a href="#github-deployment-workflow">Github Deployment Workflow</a>
+    <a href="#faq-shortcode-layouts">Faq Shortcode Layouts</a>
+    <a href="#other">Other</a>
+</div>
+
+<!-- ====== Architecture Overview ====== -->
+<h2 id="overview">1. Architecture Overview</h2>
+
+<div class="mermaid">
+
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    OUTPUTS_DOCS_ED82387C("Outputs &amp; Docs<br/><small>9 nodes</small>")
+    class OUTPUTS_DOCS_ED82387C module;
+    CLI_SKILLS_9964CBB8("CLI &amp; Skill Installers<br/><small>3 nodes</small>")
+    class CLI_SKILLS_9964CBB8 module;
+    SERVE_API_35EC8E86("Serving API<br/><small>1 nodes</small>")
+    class SERVE_API_35EC8E86 module;
+    CONTENT_CERAI_SERVICE_9080D440("Content Cerai Service<br/><small>10 nodes</small>")
+    class CONTENT_CERAI_SERVICE_9080D440 module;
+    ARCHETYPE_CONTENT_CARIMD_0611BB99("Archetype Content Carimd<br/><small>4 nodes</small>")
+    class ARCHETYPE_CONTENT_CARIMD_0611BB99 module;
+    BLOG_CONTENT_DIVORCE_B9B4C56C("Blog Content Divorce<br/><small>3 nodes</small>")
+    class BLOG_CONTENT_DIVORCE_B9B4C56C module;
+    BLOG_ISBAT_NIKAH_10CA7B3A("Blog Isbat Nikah<br/><small>2 nodes</small>")
+    class BLOG_ISBAT_NIKAH_10CA7B3A module;
+    HARTA_GONO_CONTENT_E53816FA("Harta Gono Content<br/><small>2 nodes</small>")
+    class HARTA_GONO_CONTENT_E53816FA module;
+    HAK_ASUH_ANAK_11B9CE4B("Hak Asuh Anak<br/><small>1 nodes</small>")
+    class HAK_ASUH_ANAK_11B9CE4B module;
+    HOME_PAGE_CONTENT_8708D167("Home Page Content<br/><small>1 nodes</small>")
+    class HOME_PAGE_CONTENT_8708D167 module;
+    CONSULTATION_PAGE_CONTENT_F885CD45("Consultation Page Content<br/><small>1 nodes</small>")
+    class CONSULTATION_PAGE_CONTENT_F885CD45 module;
+    ABOUT_CONTENT_TENTANGMD_466481B3("About Content Tentangmd<br/><small>1 nodes</small>")
+    class ABOUT_CONTENT_TENTANGMD_466481B3 module;
+    GITHUB_DEPLOYMENT_WORKFLOW_73537E12("Github Deployment Workflow<br/><small>1 nodes</small>")
+    class GITHUB_DEPLOYMENT_WORKFLOW_73537E12 module;
+    FAQ_SHORTCODE_LAYOUTS_C24F5B0F("Faq Shortcode Layouts<br/><small>1 nodes</small>")
+    class FAQ_SHORTCODE_LAYOUTS_C24F5B0F module;
+    OTHER_D0941E68("Other<br/><small>5 nodes</small>")
+    class OTHER_D0941E68 module;
+    OUTPUTS_DOCS_ED82387C -.-> CLI_SKILLS_9964CBB8
+    CLI_SKILLS_9964CBB8 -.-> SERVE_API_35EC8E86
+    SERVE_API_35EC8E86 -.-> CONTENT_CERAI_SERVICE_9080D440
+    CONTENT_CERAI_SERVICE_9080D440 -.-> ARCHETYPE_CONTENT_CARIMD_0611BB99
+    ARCHETYPE_CONTENT_CARIMD_0611BB99 -.-> BLOG_CONTENT_DIVORCE_B9B4C56C
+    BLOG_CONTENT_DIVORCE_B9B4C56C -.-> BLOG_ISBAT_NIKAH_10CA7B3A
+    BLOG_ISBAT_NIKAH_10CA7B3A -.-> HARTA_GONO_CONTENT_E53816FA
+    HARTA_GONO_CONTENT_E53816FA -.-> HAK_ASUH_ANAK_11B9CE4B
+    HAK_ASUH_ANAK_11B9CE4B -.-> HOME_PAGE_CONTENT_8708D167
+    HOME_PAGE_CONTENT_8708D167 -.-> CONSULTATION_PAGE_CONTENT_F885CD45
+    CONSULTATION_PAGE_CONTENT_F885CD45 -.-> ABOUT_CONTENT_TENTANGMD_466481B3
+    ABOUT_CONTENT_TENTANGMD_466481B3 -.-> GITHUB_DEPLOYMENT_WORKFLOW_73537E12
+    GITHUB_DEPLOYMENT_WORKFLOW_73537E12 -.-> FAQ_SHORTCODE_LAYOUTS_C24F5B0F
+    FAQ_SHORTCODE_LAYOUTS_C24F5B0F -.-> OTHER_D0941E68
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h4>Architecture Layers</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>Layer</th><th>Nodes</th><th>Communities</th></tr>
+      <tr><td>Outputs &amp; Docs</td><td>9</td><td><code>1</code></td></tr><tr><td>CLI &amp; Skill Installers</td><td>3</td><td><code>4</code></td></tr><tr><td>Serving API</td><td>1</td><td><code>7</code></td></tr><tr><td>Content Cerai Service</td><td>10</td><td><code>0</code></td></tr><tr><td>Archetype Content Carimd</td><td>4</td><td><code>2</code></td></tr><tr><td>Blog Content Divorce</td><td>3</td><td><code>3</code></td></tr><tr><td>Blog Isbat Nikah</td><td>2</td><td><code>5</code></td></tr><tr><td>Harta Gono Content</td><td>2</td><td><code>6</code></td></tr><tr><td>Hak Asuh Anak</td><td>1</td><td><code>10</code></td></tr><tr><td>Home Page Content</td><td>1</td><td><code>11</code></td></tr><tr><td>Consultation Page Content</td><td>1</td><td><code>12</code></td></tr><tr><td>About Content Tentangmd</td><td>1</td><td><code>13</code></td></tr><tr><td>Github Deployment Workflow</td><td>1</td><td><code>14</code></td></tr><tr><td>Faq Shortcode Layouts</td><td>1</td><td><code>15</code></td></tr><tr><td>Other</td><td>5</td><td><code>16, 17, 18, 8, 9</code></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Core Flow</h4>
+    <div class="arrow-chain">Outputs &amp; Docs -&gt; CLI &amp; Skill Installers -&gt; Serving API -&gt; Content Cerai Service -&gt; Archetype Content Carimd -&gt; Blog Content Divorce -&gt; Blog Isbat Nikah</div>
+  </div>
+</div>
+<hr>
+<!-- ====== 2. Outputs & Docs ====== -->
+<h2 id="outputs-docs">2. Outputs &amp; Docs</h2>
+<p>Outputs &amp; Docs groups implementation around layouts, page, template, partial, mostly in layouts/index.html, layouts/_default/baseof.html, layouts/_default/list.html. This section covers 9 nodes and 9 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Outputs &amp; Docs (9 nodes, 9 edges)
+    layouts_default_baseof_d33f1b6d("Base Layout<br/><small>layouts/_default/baseof.html</small>")
+    layouts_default_list_5567aeb8("List Page Template<br/><small>layouts/_default/list.html</small>")
+    layouts_default_single_4e459790("Single Page Template<br/><small>layouts/_default/single.html</small>")
+    layouts_cari_single_42075c63("Search Page Template<br/><small>layouts/cari/single.html</small>")
+    layouts_index_5bbcafb7("Home Page Template<br/><small>layouts/index.html</small>")
+    layouts_partials_breadcrumbs_c9d62f53("Breadcrumbs Partial<br/><small>layouts/partials/breadcrumbs.html</small>")
+    layouts_partials_footer_48fbe042("Footer Partial<br/><small>layouts/partials/footer.html</small>")
+    layouts_partials_header_1ace9cc3("Header Partial<br/><small>layouts/partials/header.html</small>")
+    layouts_partials_schema_3cac2c8f("Schema.org Partial<br/><small>layouts/partials/schema.html</small>")
+    layouts_default_baseof_d33f1b6d -->|calls| layouts_partials_footer_48fbe042
+    layouts_default_baseof_d33f1b6d -->|calls| layouts_partials_header_1ace9cc3
+    layouts_default_baseof_d33f1b6d -->|calls| layouts_partials_schema_3cac2c8f
+    layouts_default_single_4e459790 -->|calls| layouts_partials_breadcrumbs_c9d62f53
+    layouts_cari_single_42075c63 -->|calls| layouts_partials_breadcrumbs_c9d62f53
+    class layouts_default_baseof_d33f1b6d klass;
+    class layouts_default_list_5567aeb8 klass;
+    class layouts_default_single_4e459790 klass;
+    class layouts_cari_single_42075c63 klass;
+    class layouts_index_5bbcafb7 klass;
+    class layouts_partials_breadcrumbs_c9d62f53 klass;
+    class layouts_partials_footer_48fbe042 klass;
+    class layouts_partials_header_1ace9cc3 klass;
+    class layouts_partials_schema_3cac2c8f klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Home Page Template</code><br><small style="color:var(--muted)">layouts/index.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Organizes documentation pages, navigation, or content lookup.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Base Layout</code><br><small style="color:var(--muted)">layouts/_default/baseof.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Footer Partial</code><br><small style="color:var(--muted)">layouts/partials/footer.html</small><br><code>Header Partial</code><br><small style="color:var(--muted)">layouts/partials/header.html</small><br><code>Schema.org Partial</code><br><small style="color:var(--muted)">layouts/partials/schema.html</small></td>
+  <td>Base Layout node in layouts/_default/baseof.html.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>List Page Template</code><br><small style="color:var(--muted)">layouts/_default/list.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Organizes documentation pages, navigation, or content lookup.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>Single Page Template</code><br><small style="color:var(--muted)">layouts/_default/single.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Breadcrumbs Partial</code><br><small style="color:var(--muted)">layouts/partials/breadcrumbs.html</small></td>
+  <td>Organizes documentation pages, navigation, or content lookup.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>Search Page Template</code><br><small style="color:var(--muted)">layouts/cari/single.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Breadcrumbs Partial</code><br><small style="color:var(--muted)">layouts/partials/breadcrumbs.html</small></td>
+  <td>Organizes documentation pages, navigation, or content lookup.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>Breadcrumbs Partial</code><br><small style="color:var(--muted)">layouts/partials/breadcrumbs.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td><code>Search Page Template</code><br><small style="color:var(--muted)">layouts/cari/single.html</small><br><code>Single Page Template</code><br><small style="color:var(--muted)">layouts/_default/single.html</small></td>
+  <td>No direct outbound edge</td>
+  <td>Breadcrumbs Partial node in layouts/partials/breadcrumbs.html.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>Footer Partial</code><br><small style="color:var(--muted)">layouts/partials/footer.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td><code>Base Layout</code><br><small style="color:var(--muted)">layouts/_default/baseof.html</small></td>
+  <td>No direct outbound edge</td>
+  <td>Footer Partial node in layouts/partials/footer.html.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>Header Partial</code><br><small style="color:var(--muted)">layouts/partials/header.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td><code>Base Layout</code><br><small style="color:var(--muted)">layouts/_default/baseof.html</small></td>
+  <td>No direct outbound edge</td>
+  <td>Header Partial node in layouts/partials/header.html.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>Schema.org Partial</code><br><small style="color:var(--muted)">layouts/partials/schema.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td><code>Base Layout</code><br><small style="color:var(--muted)">layouts/_default/baseof.html</small></td>
+  <td>No direct outbound edge</td>
+  <td>Schema.org Partial node in layouts/partials/schema.html.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>layouts/_default/baseof.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/_default/list.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/_default/single.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/cari/single.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/index.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/partials/breadcrumbs.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/partials/footer.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/partials/header.html</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: calls x5, implements x4. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 3. CLI & Skill Installers ====== -->
+<h2 id="cli-skills">3. CLI &amp; Skill Installers</h2>
+<p>CLI &amp; Skill Installers groups implementation around graphifyjs, opencode, plugins, graphifyplugin, mostly in .opencode/plugins/graphify.js. This section covers 3 nodes and 2 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: CLI &amp; Skill Installers (3 nodes, 2 edges)
+    opencode_plugins_graphify_9f97c30a("graphify.js")
+    opencode_plugins_graphify_graphifyplugin_69004865("GraphifyPlugin()<br/><small>.opencode/plugins/graphify.js</small>")
+    opencode_plugins_graphify_rationale_4_8dd2ffc7("IMPORTANT: keep the reminder string fre...<br/><small>.opencode/plugins/graphify.js</small>")
+    opencode_plugins_graphify_9f97c30a -->|contains| opencode_plugins_graphify_graphifyplugin_69004865
+    opencode_plugins_graphify_9f97c30a -->|explains| opencode_plugins_graphify_rationale_4_8dd2ffc7
+    class opencode_plugins_graphify_9f97c30a module;
+    class opencode_plugins_graphify_graphifyplugin_69004865 function;
+    class opencode_plugins_graphify_rationale_4_8dd2ffc7 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>graphify.js</code><br><small style="color:var(--muted)">.opencode/plugins/graphify.js</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Builds dependency relationships and graph data.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>GraphifyPlugin()</code><br><small style="color:var(--muted)">.opencode/plugins/graphify.js</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Builds dependency relationships and graph data.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>IMPORTANT: keep the reminder string free of backticks and $(...) constructs.</code><br><small style="color:var(--muted)">.opencode/plugins/graphify.js</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Design note for IMPORTANT: keep the reminder string free of backticks and $(...) constructs..</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>.opencode/plugins/graphify.js</code></td><td>3 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x1, explains x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 4. Serving API ====== -->
+<h2 id="serve-api">4. Serving API</h2>
+<p>Serving API groups implementation around searchjs, assets, mostly in assets/js/search.js. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Serving API (1 nodes, 0 edges)
+    assets_js_search_8f4dd37e("search.js")
+    class assets_js_search_8f4dd37e module;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>search.js</code><br><small style="color:var(--muted)">assets/js/search.js</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>search.js node in assets/js/search.js.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>assets/js/search.js</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 5. Content Cerai Service ====== -->
+<h2 id="content-cerai-service">5. Content Cerai Service</h2>
+<p>Content Cerai Service groups implementation around content, cerai, service, blog, mostly in content/cerai-gugat/_index.md, content/cerai-talak.md, content/isbat-nikah.md. This section covers 10 nodes and 11 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Content Cerai Service (10 nodes, 11 edges)
+    concept_hukum_keluarga_islam_197c1ceb("Islamic Family Law")
+    content_blog_biaya_cerai_2026_e878a7cd("Blog: Divorce Costs 2026<br/><small>content/blog/biaya-cerai-2026.md</small>")
+    content_blog_cerai_gugat_pa_bandung_2026_5177e012("Blog: PA Bandung Divorce Guide<br/><small>content/blog/cerai-gugat-pa-bandung-2026.md</small>")
+    content_cerai_gugat_index_faf3d4dd("Cerai Gugat Service<br/><small>content/cerai-gugat/_index.md</small>")
+    content_cerai_talak_0ab3a92d("Cerai Talak Service<br/><small>content/cerai-talak.md</small>")
+    content_faq_e338454f("FAQ Page<br/><small>content/faq.md</small>")
+    content_isbat_nikah_733f25ca("Isbat Nikah Service<br/><small>content/isbat-nikah.md</small>")
+    content_persyaratan_dokumen_13ad9f3f("Document Requirements<br/><small>content/persyaratan-dokumen.md</small>")
+    content_prosedur_hukum_92810c78("Legal Procedures<br/><small>content/prosedur-hukum.md</small>")
+    content_waris_070e1525("Pembagian Waris Service<br/><small>content/waris.md</small>")
+    content_cerai_gugat_index_faf3d4dd -->|references| content_blog_biaya_cerai_2026_e878a7cd
+    content_cerai_gugat_index_faf3d4dd -->|references| content_cerai_talak_0ab3a92d
+    content_cerai_gugat_index_faf3d4dd -->|references| content_faq_e338454f
+    content_cerai_gugat_index_faf3d4dd -->|references| content_persyaratan_dokumen_13ad9f3f
+    content_cerai_talak_0ab3a92d -->|references| content_faq_e338454f
+    content_isbat_nikah_733f25ca -->|relates| content_waris_070e1525
+    content_persyaratan_dokumen_13ad9f3f -->|references| content_prosedur_hukum_92810c78
+    content_blog_biaya_cerai_2026_e878a7cd -->|references| content_blog_cerai_gugat_pa_bandung_2026_5177e012
+    content_cerai_gugat_index_faf3d4dd -->|joins| concept_hukum_keluarga_islam_197c1ceb
+    content_cerai_talak_0ab3a92d -->|joins| concept_hukum_keluarga_islam_197c1ceb
+    content_waris_070e1525 -->|joins| concept_hukum_keluarga_islam_197c1ceb
+    class concept_hukum_keluarga_islam_197c1ceb klass;
+    class content_blog_biaya_cerai_2026_e878a7cd concept;
+    class content_blog_cerai_gugat_pa_bandung_2026_5177e012 concept;
+    class content_cerai_gugat_index_faf3d4dd concept;
+    class content_cerai_talak_0ab3a92d concept;
+    class content_faq_e338454f concept;
+    class content_isbat_nikah_733f25ca concept;
+    class content_persyaratan_dokumen_13ad9f3f concept;
+    class content_prosedur_hukum_92810c78 concept;
+    class content_waris_070e1525 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Cerai Gugat Service</code><br><small style="color:var(--muted)">content/cerai-gugat/_index.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Cerai Gugat Service.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Cerai Talak Service</code><br><small style="color:var(--muted)">content/cerai-talak.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Cerai Talak Service.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Isbat Nikah Service</code><br><small style="color:var(--muted)">content/isbat-nikah.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Isbat Nikah Service.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>Pembagian Waris Service</code><br><small style="color:var(--muted)">content/waris.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Pembagian Waris Service.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>FAQ Page</code><br><small style="color:var(--muted)">content/faq.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing FAQ Page.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>Document Requirements</code><br><small style="color:var(--muted)">content/persyaratan-dokumen.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Document Requirements.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>Legal Procedures</code><br><small style="color:var(--muted)">content/prosedur-hukum.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Legal Procedures.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>Blog: Divorce Costs 2026</code><br><small style="color:var(--muted)">content/blog/biaya-cerai-2026.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Divorce Costs 2026.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>Blog: PA Bandung Divorce Guide</code><br><small style="color:var(--muted)">content/blog/cerai-gugat-pa-bandung-2026.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: PA Bandung Divorce Guide.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>Islamic Family Law</code><br><small style="color:var(--muted)"></small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Islamic Family Law node in project.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/blog/biaya-cerai-2026.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/blog/cerai-gugat-pa-bandung-2026.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/cerai-gugat/_index.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/cerai-talak.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/faq.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/isbat-nikah.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/persyaratan-dokumen.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/prosedur-hukum.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: references x7, joins x3, relates x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 6. Archetype Content Carimd ====== -->
+<h2 id="archetype-content-carimd">6. Archetype Content Carimd</h2>
+<p>Archetype Content Carimd groups implementation around archetype, content, carimd, default, mostly in content/cari.md, archetypes/default.md. This section covers 4 nodes and 3 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Archetype Content Carimd (4 nodes, 3 edges)
+    subgraph archetype_content_carimd_content_cari_md_f41abf89["content/cari.md"]
+        content_cari_md_11436b21("Cari Artikel<br/><small>content/cari.md</small>")
+        griya_hukum_keluarga_4310eb82("Griya Hukum Keluarga<br/><small>content/cari.md</small>")
+    end
+    hugo_archetype_system_0caa0706("Hugo Archetype System")
+    archetypes_default_md_0abc9c96("Default Archetype<br/><small>archetypes/default.md</small>")
+    content_cari_md_11436b21 -->|relates| griya_hukum_keluarga_4310eb82
+    archetypes_default_md_0abc9c96 -->|implements| hugo_archetype_system_0caa0706
+    class content_cari_md_11436b21 concept;
+    class griya_hukum_keluarga_4310eb82 klass;
+    class hugo_archetype_system_0caa0706 klass;
+    class archetypes_default_md_0abc9c96 klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Default Archetype</code><br><small style="color:var(--muted)">archetypes/default.md</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Default Archetype node in archetypes/default.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Cari Artikel</code><br><small style="color:var(--muted)">content/cari.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Cari Artikel.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Hugo Archetype System</code><br><small style="color:var(--muted)"></small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Hugo Archetype System node in project.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>Griya Hukum Keluarga</code><br><small style="color:var(--muted)">content/cari.md</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Griya Hukum Keluarga node in content/cari.md.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/cari.md</code></td><td>2 nodes</td></tr>
+<tr><td><code>archetypes/default.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: implements x1, relates x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 7. Blog Content Divorce ====== -->
+<h2 id="blog-content-divorce">7. Blog Content Divorce</h2>
+<p>Blog Content Divorce groups implementation around blog, content, divorce, without, mostly in content/blog/cerai-tanpa-pengacara.md, content/blog/hak-istri-setelah-cerai.md, content/blog/suami-tidak-nafkah.md. This section covers 3 nodes and 2 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Blog Content Divorce (3 nodes, 2 edges)
+    content_blog_cerai_tanpa_pengacara_d172a2fb("Blog: Divorce Without Lawyer<br/><small>content/blog/cerai-tanpa-pengacara.md</small>")
+    content_blog_hak_istri_setelah_cerai_087ca82d("Blog: Wife's Rights After Divorce<br/><small>content/blog/hak-istri-setelah-cerai.md</small>")
+    content_blog_suami_tidak_nafkah_18adc0be("Blog: Husband Not Providing Alimony<br/><small>content/blog/suami-tidak-nafkah.md</small>")
+    content_blog_cerai_tanpa_pengacara_d172a2fb -->|references| content_blog_hak_istri_setelah_cerai_087ca82d
+    content_blog_hak_istri_setelah_cerai_087ca82d -->|references| content_blog_suami_tidak_nafkah_18adc0be
+    class content_blog_cerai_tanpa_pengacara_d172a2fb concept;
+    class content_blog_hak_istri_setelah_cerai_087ca82d concept;
+    class content_blog_suami_tidak_nafkah_18adc0be concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Blog: Divorce Without Lawyer</code><br><small style="color:var(--muted)">content/blog/cerai-tanpa-pengacara.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Divorce Without Lawyer.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Blog: Wife&#x27;s Rights After Divorce</code><br><small style="color:var(--muted)">content/blog/hak-istri-setelah-cerai.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Wife&#x27;s Rights After Divorce.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Blog: Husband Not Providing Alimony</code><br><small style="color:var(--muted)">content/blog/suami-tidak-nafkah.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Husband Not Providing Alimony.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/blog/cerai-tanpa-pengacara.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/blog/hak-istri-setelah-cerai.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/blog/suami-tidak-nafkah.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: references x2. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 8. Blog Isbat Nikah ====== -->
+<h2 id="blog-isbat-nikah">8. Blog Isbat Nikah</h2>
+<p>Blog Isbat Nikah groups implementation around blog, isbat, nikah, content, mostly in content/blog/biaya-isbat-nikah-2026.md, content/blog/syarat-isbat-nikah.md. This section covers 2 nodes and 1 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Blog Isbat Nikah (2 nodes, 1 edges)
+    content_blog_biaya_isbat_nikah_2026_bae0c305("Blog: Isbat Nikah Costs 2026<br/><small>content/blog/biaya-isbat-nikah-2026.md</small>")
+    content_blog_syarat_isbat_nikah_8173f927("Blog: Isbat Nikah Requirements<br/><small>content/blog/syarat-isbat-nikah.md</small>")
+    content_blog_biaya_isbat_nikah_2026_bae0c305 -->|references| content_blog_syarat_isbat_nikah_8173f927
+    class content_blog_biaya_isbat_nikah_2026_bae0c305 concept;
+    class content_blog_syarat_isbat_nikah_8173f927 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Blog: Isbat Nikah Costs 2026</code><br><small style="color:var(--muted)">content/blog/biaya-isbat-nikah-2026.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Isbat Nikah Costs 2026.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Blog: Isbat Nikah Requirements</code><br><small style="color:var(--muted)">content/blog/syarat-isbat-nikah.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Isbat Nikah Requirements.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/blog/biaya-isbat-nikah-2026.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/blog/syarat-isbat-nikah.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: references x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 9. Harta Gono Content ====== -->
+<h2 id="harta-gono-content">9. Harta Gono Content</h2>
+<p>Harta Gono Content groups implementation around harta, gono, content, blog, mostly in content/harta-gono-gini.md, content/blog/urus-waris-tanpa-pengadilan.md. This section covers 2 nodes and 1 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Harta Gono Content (2 nodes, 1 edges)
+    content_blog_urus_waris_tanpa_pengadilan_156706d3("Blog: Inheritance Without Court<br/><small>content/blog/urus-waris-tanpa-pengadilan.md</small>")
+    content_harta_gono_gini_cc6a9255("Harta Gono-Gini Service<br/><small>content/harta-gono-gini.md</small>")
+    content_harta_gono_gini_cc6a9255 -->|references| content_blog_urus_waris_tanpa_pengadilan_156706d3
+    class content_blog_urus_waris_tanpa_pengadilan_156706d3 concept;
+    class content_harta_gono_gini_cc6a9255 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Harta Gono-Gini Service</code><br><small style="color:var(--muted)">content/harta-gono-gini.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Harta Gono-Gini Service.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Blog: Inheritance Without Court</code><br><small style="color:var(--muted)">content/blog/urus-waris-tanpa-pengadilan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Inheritance Without Court.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/blog/urus-waris-tanpa-pengadilan.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/harta-gono-gini.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: references x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 10. Hak Asuh Anak ====== -->
+<h2 id="hak-asuh-anak">10. Hak Asuh Anak</h2>
+<p>Hak Asuh Anak groups implementation around hak, asuh, anak, service, mostly in content/hak-asuh-anak.md. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Hak Asuh Anak (1 nodes, 0 edges)
+    content_hak_asuh_anak_e7b289e5("Hak Asuh Anak Service<br/><small>content/hak-asuh-anak.md</small>")
+    class content_hak_asuh_anak_e7b289e5 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Hak Asuh Anak Service</code><br><small style="color:var(--muted)">content/hak-asuh-anak.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Hak Asuh Anak Service.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/hak-asuh-anak.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 11. Home Page Content ====== -->
+<h2 id="home-page-content">11. Home Page Content</h2>
+<p>Home Page Content groups implementation around home, page, content, indexmd, mostly in content/_index.md. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Home Page Content (1 nodes, 0 edges)
+    content_index_9358900d("Home Page<br/><small>content/_index.md</small>")
+    class content_index_9358900d concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Home Page</code><br><small style="color:var(--muted)">content/_index.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Home Page.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/_index.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 12. Consultation Page Content ====== -->
+<h2 id="consultation-page-content">12. Consultation Page Content</h2>
+<p>Consultation Page Content groups implementation around consultation, page, content, konsultasimd, mostly in content/konsultasi.md. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Consultation Page Content (1 nodes, 0 edges)
+    content_konsultasi_1242f0c4("Consultation Page<br/><small>content/konsultasi.md</small>")
+    class content_konsultasi_1242f0c4 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Consultation Page</code><br><small style="color:var(--muted)">content/konsultasi.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Consultation Page.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/konsultasi.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 13. About Content Tentangmd ====== -->
+<h2 id="about-content-tentangmd">13. About Content Tentangmd</h2>
+<p>About Content Tentangmd groups implementation around about, content, tentangmd, mostly in content/tentang.md. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: About Content Tentangmd (1 nodes, 0 edges)
+    content_tentang_c8b2ab87("About Us<br/><small>content/tentang.md</small>")
+    class content_tentang_c8b2ab87 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>About Us</code><br><small style="color:var(--muted)">content/tentang.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing About Us.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/tentang.md</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 14. Github Deployment Workflow ====== -->
+<h2 id="github-deployment-workflow">14. Github Deployment Workflow</h2>
+<p>Github Deployment Workflow groups implementation around github, deployment, workflow, workflows, mostly in .github/workflows/deploy.yml. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Github Deployment Workflow (1 nodes, 0 edges)
+    github_workflows_deploy_defa7c61("GitHub Deployment Workflow<br/><small>.github/workflows/deploy.yml</small>")
+    class github_workflows_deploy_defa7c61 klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>GitHub Deployment Workflow</code><br><small style="color:var(--muted)">.github/workflows/deploy.yml</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Turns a local path or remote repository into analysis context.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>.github/workflows/deploy.yml</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 15. Faq Shortcode Layouts ====== -->
+<h2 id="faq-shortcode-layouts">15. Faq Shortcode Layouts</h2>
+<p>Faq Shortcode Layouts groups implementation around faq, shortcode, layouts, shortcodes, mostly in layouts/shortcodes/faq.html. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Faq Shortcode Layouts (1 nodes, 0 edges)
+    layouts_shortcodes_faq_5da3c930("FAQ Shortcode<br/><small>layouts/shortcodes/faq.html</small>")
+    class layouts_shortcodes_faq_5da3c930 klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>FAQ Shortcode</code><br><small style="color:var(--muted)">layouts/shortcodes/faq.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>FAQ Shortcode node in layouts/shortcodes/faq.html.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>layouts/shortcodes/faq.html</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 16. Other ====== -->
+<h2 id="other">16. Other</h2>
+<p>Other groups implementation around blog, shortcode, layouts, shortcodes, mostly in layouts/shortcodes/info.html, layouts/shortcodes/warning.html, layouts/shortcodes/whatsapp.html. This section covers 5 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Other (5 nodes, 0 edges)
+    content_blog_cerai_gugat_pa_bandung_7f713a05("Blog: Divorce Process Duration<br/><small>content/blog/cerai-gugat-pa-bandung.md</small>")
+    content_blog_lama_proses_isbat_nikah_14055f3f("Blog: Isbat Nikah Duration<br/><small>content/blog/lama-proses-isbat-nikah.md</small>")
+    layouts_shortcodes_info_c91e5cb0("Info Box Shortcode<br/><small>layouts/shortcodes/info.html</small>")
+    layouts_shortcodes_warning_69c03279("Warning Box Shortcode<br/><small>layouts/shortcodes/warning.html</small>")
+    layouts_shortcodes_whatsapp_801391b5("WhatsApp Button Shortcode<br/><small>layouts/shortcodes/whatsapp.html</small>")
+    class content_blog_cerai_gugat_pa_bandung_7f713a05 concept;
+    class content_blog_lama_proses_isbat_nikah_14055f3f concept;
+    class layouts_shortcodes_info_c91e5cb0 klass;
+    class layouts_shortcodes_warning_69c03279 klass;
+    class layouts_shortcodes_whatsapp_801391b5 klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Info Box Shortcode</code><br><small style="color:var(--muted)">layouts/shortcodes/info.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Info Box Shortcode node in layouts/shortcodes/info.html.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Warning Box Shortcode</code><br><small style="color:var(--muted)">layouts/shortcodes/warning.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Warning Box Shortcode node in layouts/shortcodes/warning.html.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>WhatsApp Button Shortcode</code><br><small style="color:var(--muted)">layouts/shortcodes/whatsapp.html</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>WhatsApp Button Shortcode node in layouts/shortcodes/whatsapp.html.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>Blog: Divorce Process Duration</code><br><small style="color:var(--muted)">content/blog/cerai-gugat-pa-bandung.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Divorce Process Duration.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>Blog: Isbat Nikah Duration</code><br><small style="color:var(--muted)">content/blog/lama-proses-isbat-nikah.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Blog: Isbat Nikah Duration.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>content/blog/cerai-gugat-pa-bandung.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>content/blog/lama-proses-isbat-nikah.md</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/shortcodes/info.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/shortcodes/warning.html</code></td><td>1 nodes</td></tr>
+<tr><td><code>layouts/shortcodes/whatsapp.html</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<h2 id="hyperedges">Group Relationships (Hyperedges)</h2>
+<div class="grid">
+
+  <div class="card">
+    <h4>Divorce Knowledge Base</h4>
+    <p><code>form</code> — 4 participants</p>
+    <ul>
+      <li><code>content_blog_biaya_cerai_2026</code></li>
+      <li><code>content_blog_cerai_tanpa_pengacara</code></li>
+      <li><code>content_blog_hak_istri_setelah_cerai</code></li>
+      <li><code>content_blog_suami_tidak_nafkah</code></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Core Islamic Family Law Services</h4>
+    <p><code>form</code> — 6 participants</p>
+    <ul>
+      <li><code>content_cerai_gugat_index</code></li>
+      <li><code>content_cerai_talak</code></li>
+      <li><code>content_hak_asuh_anak</code></li>
+      <li><code>content_harta_gono_gini</code></li>
+      <li><code>content_isbat_nikah</code></li>
+      <li>... and 1 more</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Divorce Information &amp; Cost Flow</h4>
+    <p><code>participate_in</code> — 4 participants</p>
+    <ul>
+      <li><code>content_blog_biaya_cerai_2026</code></li>
+      <li><code>content_blog_cerai_gugat_pa_bandung</code></li>
+      <li><code>content_blog_cerai_tanpa_pengacara</code></li>
+      <li><code>content_blog_hak_istri_setelah_cerai</code></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Hugo Layout System</h4>
+    <p><code>participate_in</code> — 4 participants</p>
+    <ul>
+      <li><code>layouts_default_baseof</code></li>
+      <li><code>layouts_index</code></li>
+      <li><code>layouts_default_list</code></li>
+      <li><code>layouts_default_single</code></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Global Site Components</h4>
+    <p><code>form</code> — 4 participants</p>
+    <ul>
+      <li><code>layouts_partials_header</code></li>
+      <li><code>layouts_partials_footer</code></li>
+      <li><code>layouts_partials_breadcrumbs</code></li>
+      <li><code>layouts_partials_schema</code></li>
+    </ul>
+  </div>
+</div>
+<hr>
+<h2 id="stats">Project Statistics</h2>
+
+<div class="grid">
+  <div class="card">
+    <h4>Graph</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><td>Nodes</td><td>45</td></tr>
+      <tr><td>Edges</td><td>29</td></tr>
+      <tr><td>Hyperedges</td><td>5</td></tr>
+      <tr><td>Communities</td><td>19</td></tr>
+      <tr><td>Documented Sections</td><td>15</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Edge Confidence</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><td>EXTRACTED</td><td>24</td></tr>
+      <tr><td>INFERRED</td><td>5</td></tr>
+      <tr><td>AMBIGUOUS</td><td>0</td></tr>
+    </table>
+  </div>
+</div>
+
+<div style="text-align:center; padding:40px 0; color: var(--muted); font-size:0.9rem;">
+  <p>Griya Hukum Keluarga — Architecture Documentation</p>
+  <p>Generated: 2026-07-27 19:01 UTC · graphify callflow-html</p>
+</div>
+
+</div><!-- .container -->
+
+<script>
+(function () {
+  const mermaidConfig = {
+    startOnLoad: false,
+    theme: 'dark',
+    securityLevel: 'loose',
+    flowchart: { htmlLabels: true, useMaxWidth: true },
+    themeVariables: {
+      primaryColor: '#1e293b',
+      primaryTextColor: '#e2e8f0',
+      primaryBorderColor: '#38bdf8',
+      secondaryColor: '#0f172a',
+      tertiaryColor: '#334155',
+      lineColor: '#64748b',
+      textColor: '#e2e8f0',
+    }
+  };
+
+  mermaid.initialize(mermaidConfig);
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function enhanceMermaidDiagrams() {
+    document.querySelectorAll('.mermaid').forEach((container) => {
+      if (container.dataset.zoomReady === 'true') return;
+      const svg = container.querySelector('svg');
+      if (!svg) return;
+
+      container.dataset.zoomReady = 'true';
+      container.classList.add('is-enhanced');
+
+      const viewport = document.createElement('div');
+      viewport.className = 'mermaid-viewport';
+      svg.parentNode.insertBefore(viewport, svg);
+      viewport.appendChild(svg);
+
+      const toolbar = document.createElement('div');
+      toolbar.className = 'mermaid-toolbar';
+      toolbar.innerHTML = [
+        '<button type="button" data-action="zoom-out" title="Zoom out">-</button>',
+        '<span class="zoom-level" data-role="level">100%</span>',
+        '<button type="button" data-action="zoom-in" title="Zoom in">+</button>',
+        '<button type="button" data-action="fit" title="Fit width">Fit</button>',
+        '<button type="button" data-action="reset" title="Reset view">Reset</button>'
+      ].join('');
+      container.insertBefore(toolbar, viewport);
+
+      const state = { scale: 1, x: 0, y: 0, dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 };
+      const level = toolbar.querySelector('[data-role="level"]');
+
+      function applyTransform() {
+        svg.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
+        level.textContent = `${Math.round(state.scale * 100)}%`;
+      }
+
+      function zoomBy(delta) {
+        state.scale = clamp(state.scale + delta, 0.25, 3);
+        applyTransform();
+      }
+
+      function reset() {
+        state.scale = 1;
+        state.x = 0;
+        state.y = 0;
+        applyTransform();
+      }
+
+      function fitWidth() {
+        const rawWidth = svg.viewBox && svg.viewBox.baseVal && svg.viewBox.baseVal.width
+          ? svg.viewBox.baseVal.width
+          : svg.getBoundingClientRect().width / state.scale;
+        if (!rawWidth) {
+          reset();
+          return;
+        }
+        state.scale = clamp((viewport.clientWidth - 48) / rawWidth, 0.25, 1.4);
+        state.x = 0;
+        state.y = 0;
+        applyTransform();
+      }
+
+      toolbar.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-action]');
+        if (!button) return;
+        const action = button.dataset.action;
+        if (action === 'zoom-in') zoomBy(0.15);
+        if (action === 'zoom-out') zoomBy(-0.15);
+        if (action === 'fit') fitWidth();
+        if (action === 'reset') reset();
+      });
+
+      viewport.addEventListener('wheel', (event) => {
+        if (!event.ctrlKey && !event.metaKey) return;
+        event.preventDefault();
+        zoomBy(event.deltaY < 0 ? 0.1 : -0.1);
+      }, { passive: false });
+
+      viewport.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+        state.dragging = true;
+        state.startX = event.clientX;
+        state.startY = event.clientY;
+        state.originX = state.x;
+        state.originY = state.y;
+        viewport.classList.add('is-dragging');
+        viewport.setPointerCapture(event.pointerId);
+      });
+
+      viewport.addEventListener('pointermove', (event) => {
+        if (!state.dragging) return;
+        state.x = state.originX + event.clientX - state.startX;
+        state.y = state.originY + event.clientY - state.startY;
+        applyTransform();
+      });
+
+      function endDrag(event) {
+        if (!state.dragging) return;
+        state.dragging = false;
+        viewport.classList.remove('is-dragging');
+        if (viewport.hasPointerCapture(event.pointerId)) {
+          viewport.releasePointerCapture(event.pointerId);
+        }
+      }
+
+      viewport.addEventListener('pointerup', endDrag);
+      viewport.addEventListener('pointercancel', endDrag);
+      applyTransform();
+    });
+  }
+
+  function renderMermaid() {
+    const result = mermaid.run
+      ? mermaid.run({ querySelector: '.mermaid' })
+      : Promise.resolve();
+    Promise.resolve(result)
+      .then(enhanceMermaidDiagrams)
+      .catch((error) => {
+        console.error('Mermaid render failed:', error);
+        enhanceMermaidDiagrams();
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+</script>
+
+</body>
+</html>
